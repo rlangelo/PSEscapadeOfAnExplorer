@@ -29,6 +29,178 @@ See dygraphs License.txt, <http://dygraphs.com> and <http://opensource.org/licen
 
 // This is a template for creating new Perlenspiel games
 
+var MAP = {
+	
+	WIDTH: 9,
+	HEIGHT: 10,
+	GAME_OVER: false,
+	
+};
+
+var GRID = {
+	
+	MIDDLE: 11,
+		
+};
+
+var EXIT = {
+	
+	X_POS: 18,
+	Y_POS: 18,
+	
+};
+
+var PLAYER = {
+	
+	X_POS: 12,
+	Y_POS: 13,
+	
+	moveUp : function() {
+		var newY = PLAYER.Y_POS-1;
+		var result = PS.unmakeRGB(PS.color(PLAYER.X_POS, newY), {});
+		if (result.r == 255 && result.g == 255 && result.b == 255) {
+			PS.color(PLAYER.X_POS, newY, 0xE6A644);
+			PS.radius(PLAYER.X_POS, newY, 50);
+			PS.color(PLAYER.X_POS, PLAYER.Y_POS, PS.COLOR_WHITE);
+			PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 0);
+			PLAYER.Y_POS = newY;
+		}
+		else if (result.r == 255 && result.g == 215 && result.b == 0) {
+			MAP.GAME_OVER = true;
+			PS.color(PLAYER.X_POS, newY, 0xE6A644);
+			PS.radius(PLAYER.X_POS, newY, 50);
+			PS.color(PLAYER.X_POS, PLAYER.Y_POS, PS.COLOR_WHITE);
+			PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 0);
+			PS.statusText("YOU WON!");
+		}
+		else if (result.r == 115 && result.g == 143 && result.b == 155) {
+			var otherY = newY - 1;
+			var secondResult = PS.unmakeRGB(PS.color(PLAYER.X_POS, otherY), {});
+			if (!(secondResult.r == 255 && secondResult.g == 255 && secondResult.b == 255)) {
+				
+			}
+			else {
+				PS.color(PLAYER.X_POS, newY, 0xE6A644);
+				PS.radius(PLAYER.X_POS, newY, 50);
+				PS.color(PLAYER.X_POS, PLAYER.Y_POS, PS.COLOR_WHITE);
+				PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 0);
+				PS.color(PLAYER.X_POS, otherY, 0x738F9B);
+				PS.radius(PLAYER.X_POS, otherY, 25);
+				PLAYER.Y_POS = newY;
+			}
+		}
+	},
+	
+	moveDown : function() {
+		var newY = PLAYER.Y_POS+1;
+		var result = PS.unmakeRGB(PS.color(PLAYER.X_POS, newY), {});
+		if (result.r == 255 && result.g == 255 && result.b == 255) {
+			PS.color(PLAYER.X_POS, newY, 0xE6A644);
+			PS.radius(PLAYER.X_POS, newY, 50);
+			PS.color(PLAYER.X_POS, PLAYER.Y_POS, PS.COLOR_WHITE);
+			PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 0);
+			PLAYER.Y_POS = newY;
+		}
+		else if (result.r == 255 && result.g == 215 && result.b == 0) {
+			MAP.GAME_OVER = true;
+			PS.color(PLAYER.X_POS, newY, 0xE6A644);
+			PS.radius(PLAYER.X_POS, newY, 50);
+			PS.color(PLAYER.X_POS, PLAYER.Y_POS, PS.COLOR_WHITE);
+			PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 0);
+			PS.statusText("YOU WON!");
+		}
+		else if (result.r == 115 && result.g == 143 && result.b == 155) {
+			var otherY = newY + 1;
+			var secondResult = PS.unmakeRGB(PS.color(PLAYER.X_POS, otherY), {});
+			if (!(secondResult.r == 255 && secondResult.g == 255 && secondResult.b == 255)) {
+				
+			}
+			else {
+				PS.color(PLAYER.X_POS, newY, 0xE6A644);
+				PS.radius(PLAYER.X_POS, newY, 50);
+				PS.color(PLAYER.X_POS, PLAYER.Y_POS, PS.COLOR_WHITE);
+				PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 0);
+				PS.color(PLAYER.X_POS, otherY, 0x738F9B);
+				PS.radius(PLAYER.X_POS, otherY, 25);
+				PLAYER.Y_POS = newY;
+			}
+		}
+	},
+	
+	moveLeft : function() {
+		var newX = PLAYER.X_POS-1;
+		var result = PS.unmakeRGB(PS.color(newX, PLAYER.Y_POS), {});
+		if (result.r == 255 && result.g == 255 && result.b == 255) {
+			PS.color(newX, PLAYER.Y_POS, 0xE6A644);
+			PS.radius(newX, PLAYER.Y_POS, 50);
+			PS.color(PLAYER.X_POS, PLAYER.Y_POS, PS.COLOR_WHITE);
+			PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 0);
+			PLAYER.X_POS = newX;
+		}
+		else if (result.r == 255 && result.g == 215 && result.b == 0) {
+			MAP.GAME_OVER = true;
+			PS.color(newX, PLAYER.Y_POS, 0xE6A644);
+			PS.radius(newX, PLAYER.Y_POS, 50);
+			PS.color(PLAYER.X_POS, PLAYER.Y_POS, PS.COLOR_WHITE);
+			PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 0);
+			PS.statusText("YOU WON!");
+		}
+		else if (result.r == 115 && result.g == 143 && result.b == 155) {
+			var otherX = newX - 1;
+			var secondResult = PS.unmakeRGB(PS.color(otherX, PLAYER.Y_POS), {});
+			if (!(secondResult.r == 255 && secondResult.g == 255 && secondResult.b == 255)) {
+				
+			}
+			else {
+				PS.color(newX, PLAYER.Y_POS, 0xE6A644);
+				PS.radius(newX, PLAYER.Y_POS, 50);
+				PS.color(PLAYER.X_POS, PLAYER.Y_POS, PS.COLOR_WHITE);
+				PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 0);
+				PS.color(otherX, PLAYER.Y_POS, 0x738F9B);
+				PS.radius(otherX, PLAYER.Y_POS, 25);
+				PLAYER.X_POS = newX;
+			}
+		}
+	},
+	
+	moveRight : function() {
+		var newX = PLAYER.X_POS+1;
+		var result = PS.unmakeRGB(PS.color(newX, PLAYER.Y_POS), {});
+		if (result.r == 255 && result.g == 255 && result.b == 255) {
+			PS.color(newX, PLAYER.Y_POS, 0xE6A644);
+			PS.radius(newX, PLAYER.Y_POS, 50);
+			PS.color(PLAYER.X_POS, PLAYER.Y_POS, PS.COLOR_WHITE);
+			PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 0);
+			PLAYER.X_POS = newX;
+		}
+		else if (result.r == 255 && result.g == 215 && result.b == 0) {
+			MAP.GAME_OVER = true;
+			PS.color(newX, PLAYER.Y_POS, 0xE6A644);
+			PS.radius(newX, PLAYER.Y_POS, 50);
+			PS.color(PLAYER.X_POS, PLAYER.Y_POS, PS.COLOR_WHITE);
+			PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 0);
+			PS.statusText("YOU WON!");
+		}
+		else if (result.r == 115 && result.g == 143 && result.b == 155) {
+			var otherX = newX + 1;
+			var secondResult = PS.unmakeRGB(PS.color(otherX, PLAYER.Y_POS), {});
+			if (!(secondResult.r == 255 && secondResult.g == 255 && secondResult.b == 255)) {
+				
+			}
+			else {
+				PS.color(newX, PLAYER.Y_POS, 0xE6A644);
+				PS.radius(newX, PLAYER.Y_POS, 50);
+				PS.color(PLAYER.X_POS, PLAYER.Y_POS, PS.COLOR_WHITE);
+				PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 0);
+				PS.color(otherX, PLAYER.Y_POS, 0x738F9B);
+				PS.radius(otherX, PLAYER.Y_POS, 25);
+				PLAYER.X_POS = newX;
+			}
+		}
+	},
+	
+};
+
 // All of the functions below MUST exist, or the engine will complain!
 
 // PS.init( system, options )
@@ -46,7 +218,96 @@ PS.init = function( system, options ) {
 	// Do this FIRST to avoid problems!
 	// Otherwise you will get the default 8x8 grid
 
-	PS.gridSize( 8, 8 );
+	PS.gridSize( 32, 32 );
+	PS.border(PS.ALL, PS.ALL, 0);
+	PS.statusText("GET TO THE EXIT!");
+	
+	PS.color(11, 11, 0x8C3313);
+	PS.color(11, 12, 0x8C3313);
+	PS.color(11, 13, 0x8C3313);
+	PS.color(11, 14, 0x8C3313);
+	PS.color(11, 15, 0x8C3313);
+	PS.color(11, 16, 0x8C3313);
+	PS.color(11, 17, 0x8C3313);
+	PS.color(11, 18, 0x8C3313);
+	PS.color(11, 19, 0x8C3313);
+	PS.color(11, 20, 0x8C3313);
+	
+	PS.color(11, 11, 0x8C3313);
+	PS.color(12, 11, 0x8C3313);
+	PS.color(13, 11, 0x8C3313);
+	PS.color(14, 11, 0x8C3313);
+	PS.color(15, 11, 0x8C3313);
+	PS.color(16, 11, 0x8C3313);
+	PS.color(17, 11, 0x8C3313);
+	PS.color(18, 11, 0x8C3313);
+	PS.color(19, 11, 0x8C3313);
+	
+	PS.color(19, 11, 0x8C3313);
+	PS.color(19, 12, 0x8C3313);
+	PS.color(19, 13, 0x8C3313);
+	PS.color(19, 14, 0x8C3313);
+	PS.color(19, 15, 0x8C3313);
+	PS.color(19, 16, 0x8C3313);
+	PS.color(19, 17, 0x8C3313);
+	PS.color(19, 18, 0x8C3313);
+	PS.color(19, 19, 0x8C3313);
+	PS.color(19, 20, 0x8C3313);
+
+	PS.color(11, 20, 0x8C3313);
+	PS.color(12, 20, 0x8C3313);
+	PS.color(13, 20, 0x8C3313);
+	PS.color(14, 20, 0x8C3313);
+	PS.color(15, 20, 0x8C3313);
+	PS.color(16, 20, 0x8C3313);
+	PS.color(17, 20, 0x8C3313);
+	PS.color(18, 20, 0x8C3313);
+	PS.color(19, 20, 0x8C3313);
+	
+	PS.color(16, 12, 0x8C3313);
+	PS.color(17, 12, 0x8C3313);
+	PS.color(18, 12, 0x8C3313);
+	
+	PS.color(16, 13, 0x8C3313);
+	PS.color(17, 13, 0x8C3313);
+	PS.color(18, 13, 0x8C3313);
+	PS.color(14, 13, 0x8C3313);
+	PS.color(13, 13, 0x8C3313);
+	PS.color(12, 13, 0xE6A644);
+	PS.radius(12, 13, 50);
+	PS.color(15, 13, 0x738F9B);
+	PS.radius(15, 13, 25);
+	
+	PS.color(16, 14, 0x8C3313);
+	PS.color(17, 14, 0x8C3313);
+	PS.color(18, 14, 0x8C3313);
+	PS.color(14, 14, 0x8C3313);
+	PS.color(13, 14, 0x8C3313);	
+	PS.color(12, 14, 0x8C3313);
+	
+	PS.color(17, 15, 0x8C3313);
+	PS.color(18, 15, 0x8C3313);
+	PS.color(14, 15, 0x8C3313);
+	PS.color(13, 15, 0x8C3313);	
+	PS.color(12, 15, 0x8C3313);
+	
+	PS.color(18, 16, 0x8C3313);
+	PS.color(17, 16, 0x8C3313);	
+	PS.color(12, 16, 0x8C3313);
+	
+	PS.color(17, 17, 0x8C3313);
+	PS.color(18, 17, 0x8C3313);
+	PS.color(16, 17, 0x8C3313);
+	PS.color(15, 17, 0x8C3313);	
+	
+	PS.color(17, 18, 0x8C3313);
+	PS.color(14, 18, 0x8C3313);
+	PS.color(16, 18, 0x8C3313);
+	PS.color(15, 18, 0x8C3313);
+	PS.color(13, 18, 0x8C3313);
+	PS.color(18, 18, 0xFFD700);
+	PS.radius(18, 18, 50);
+		
 
 	// Add any other initialization code you need here
 };
@@ -166,7 +427,30 @@ PS.keyUp = function( key, shift, ctrl, options ) {
 	"use strict";
 
 	// Uncomment the following line to inspect parameters
-	// PS.debug( "PS.keyUp(): key = " + key + ", shift = " + shift + ", ctrl = " + ctrl + "\n" );
+	//PS.debug( "PS.keyUp(): key = " + key + ", shift = " + shift + ", ctrl = " + ctrl + "\n" );
+	
+	if (!MAP.GAME_OVER) {
+	switch(key) {
+		case 1005:
+			PLAYER.moveLeft();
+			PS.debug("Left Pressed!\n");
+			break;
+		case 1006:
+			PLAYER.moveUp();
+			PS.debug("Up Pressed!\n");
+			break;
+		case 1007:
+			PLAYER.moveRight();
+			PS.debug("Right Pressed!\n");
+			break;
+		case 1008:
+			PLAYER.moveDown();
+			PS.debug("Down Pressed!\n");
+			break;
+		default:
+			break;
+	}
+	}
 
 	// Add code here for when a key is released
 };
