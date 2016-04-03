@@ -94,7 +94,7 @@ var MAP = {
 	PS.color(13, 13, 0x8C3313);
 	PS.color(12, 13, 0xE6A644);
 	PS.radius(12, 13, 50);
-	PS.color(15, 14, 0x784800);
+	PS.color(15, 14, 0x40A4DF);
 	PS.color(15, 13, 0x738F9B);
 	PS.radius(15, 13, 25);
 	
@@ -191,6 +191,14 @@ var PLAYER = {
 				PS.radius(PLAYER.X_POS, otherY, 25);
 				PLAYER.Y_POS = newY;
 			}
+			else if (secondResult.r == 64 && secondResult.g == 164 && secondResult.b == 223) {
+				PS.color(PLAYER.X_POS, newY, 0xE6A644);
+				PS.radius(PLAYER.X_POS, newY, 50);
+				PS.color(PLAYER.X_POS, PLAYER.Y_POS, PS.COLOR_WHITE);
+				PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 0);
+				PS.color(PLAYER.X_POS, otherY, 0x784800);
+				PLAYER.Y_POS = newY;
+			}
 
 		}
 		else if (result.r == 255 && result.g == 0 && result.b == 0) {
@@ -239,16 +247,21 @@ var PLAYER = {
 				otherX = newX + 1;
 			}
 			var secondResult = PS.unmakeRGB(PS.color(otherX, PLAYER.Y_POS), {});
-			if (!(secondResult.r == 255 && secondResult.g == 255 && secondResult.b == 255)) {
-				
-			}
-			else {
+			if (secondResult.r == 255 && secondResult.g == 255 && secondResult.b == 255) {
 				PS.color(newX, PLAYER.Y_POS, 0xE6A644);
 				PS.radius(newX, PLAYER.Y_POS, 50);
 				PS.color(PLAYER.X_POS, PLAYER.Y_POS, PS.COLOR_WHITE);
 				PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 0);
 				PS.color(otherX, PLAYER.Y_POS, 0x738F9B);
 				PS.radius(otherX, PLAYER.Y_POS, 25);
+				PLAYER.X_POS = newX;
+			}
+			else if (secondResult.r == 64 && secondResult.g == 164 && secondResult.b == 223) {
+				PS.color(newX, PLAYER.Y_POS, 0xE6A644);
+				PS.radius(newX, PLAYER.Y_POS, 50);
+				PS.color(PLAYER.X_POS, PLAYER.Y_POS, PS.COLOR_WHITE);
+				PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 0);
+				PS.color(otherX, PLAYER.Y_POS, 0x784800);
 				PLAYER.X_POS = newX;
 			}
 		}
@@ -436,23 +449,18 @@ PS.keyUp = function( key, shift, ctrl, options ) {
 	switch(key) {
 		case 1005:
 			PLAYER.moveHorizontally(1);
-			PS.debug("Left Pressed!\n");
 			break;
 		case 1006:
 			PLAYER.moveVertically(1);
-			PS.debug("Up Pressed!\n");
 			break;
 		case 1007:
 			PLAYER.moveHorizontally(2);
-			PS.debug("Right Pressed!\n");
 			break;
 		case 1008:
 			PLAYER.moveVertically(2);
-			PS.debug("Down Pressed!\n");
 			break;
 		case 114:
 			MAP.build();
-			PS.debug("Level restarted");
 			break;
 		default:
 			break;
