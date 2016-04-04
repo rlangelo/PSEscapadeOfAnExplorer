@@ -31,104 +31,120 @@ See dygraphs License.txt, <http://dygraphs.com> and <http://opensource.org/licen
 
 var MAP = {
 	
-	WIDTH: 9,
-	HEIGHT: 10,
+	MAP1: [["#","#","#","#","#","#","#","#","#"], ["#","_","_","_","_","#","#","#","#"], ["#","S","#","#","B","#","#","#","#"], ["#","#","#","#","_","#","#","#","#"], ["#","#","#","#","_","_","#","#","#"], ["#","#","_","_","_","_","#","#","#"], 
+	["#","_","_","_","#","#","#","#","#"], ["#","_","#","#","#","#","#","X","#"],
+	["#","_","_","_","_","_","_","_","#"], ["#","#","#","#","#","#","#","#","#"]],
+	
+	MAP2: [["#","#","#","#","#","#","#","_","_","#","_","_","#","#","#","#","#","#","#"], ["#","_","_","_","_","_","#","_","#","_","#","_","#","_","_","_","_","_","#"], ["#","_","~","_","~","_","#","#","_","_","_","#","#","_","B","b","B","_","#"], ["#","_","_","S","_","_","B","_","_","_","_","_","|","_", "b","X","b","_","#"],
+	["#","_","~","_","~","_","#","#","#","o","#","#","#","_","B","b","B","_","#"],
+	["#","_","_","_","_","_","#","_","#","#","#","_","#","_","_","_","_","_","#"],
+	["#","#","#","#","#","#","#","_","_","#","_","_","#","#","#","#","#","#","#"]],
+	
+	MAPS: [],
+	
+	currentMap: 1,
+	WIDTH: 0,
+	HEIGHT: 0,
 	GAME_OVER: false,
 	myTimer: 0,
 	anim: 0,
+	plates: [
+		x_pos = 15, 
+		y_pos = 14,
+		],
+	numOfPlates: 1,
 	
-	build : function() {
-	PS.color(PS.ALL, PS.ALL, 0xFFFFFF);
-	PLAYER.X_POS = 12;
-	PLAYER.Y_POS = 13;
-	PS.color(11, 11, 0x8C3313);
-	PS.color(11, 12, 0x8C3313);
-	PS.color(11, 13, 0x8C3313);
-	PS.color(11, 14, 0x8C3313);
-	PS.color(11, 15, 0x8C3313);
-	PS.color(11, 16, 0x8C3313);
-	PS.color(11, 17, 0x8C3313);
-	PS.color(11, 18, 0x8C3313);
-	PS.color(11, 19, 0x8C3313);
-	PS.color(11, 20, 0x8C3313);
-	
-	PS.color(11, 11, 0x8C3313);
-	PS.color(12, 11, 0x8C3313);
-	PS.color(13, 11, 0x8C3313);
-	PS.color(14, 11, 0x8C3313);
-	PS.color(15, 11, 0x8C3313);
-	PS.color(16, 11, 0x8C3313);
-	PS.color(17, 11, 0x8C3313);
-	PS.color(18, 11, 0x8C3313);
-	PS.color(19, 11, 0x8C3313);
-	
-	PS.color(19, 11, 0x8C3313);
-	PS.color(19, 12, 0x8C3313);
-	PS.color(19, 13, 0x8C3313);
-	PS.color(19, 14, 0x8C3313);
-	PS.color(19, 15, 0x8C3313);
-	PS.color(19, 16, 0x8C3313);
-	PS.color(19, 17, 0x8C3313);
-	PS.color(19, 18, 0x8C3313);
-	PS.color(19, 19, 0x8C3313);
-	PS.color(19, 20, 0x8C3313);
-
-	PS.color(11, 20, 0x8C3313);
-	PS.color(12, 20, 0x8C3313);
-	PS.color(13, 20, 0x8C3313);
-	PS.color(14, 20, 0x8C3313);
-	PS.color(15, 20, 0x8C3313);
-	PS.color(16, 20, 0x8C3313);
-	PS.color(17, 20, 0x8C3313);
-	PS.color(18, 20, 0x8C3313);
-	PS.color(19, 20, 0x8C3313);
-	
-	//PS.color(16, 12, 0x8C3313);
-	PS.color(17, 12, 0x8C3313);
-	PS.color(18, 12, 0x8C3313);
-	
-	//PS.color(16, 13, 0x8C3313);
-	PS.color(17, 13, 0x8C3313);
-	PS.color(18, 13, 0x8C3313);
-	PS.color(14, 13, 0x8C3313);
-	PS.color(13, 13, 0x8C3313);
-	PS.color(12, 13, 0xE6A644);
-	PS.radius(12, 13, 50);
-	PS.color(15, 14, 0x40A4DF);
-	PS.color(15, 13, 0x738F9B);
-	PS.radius(15, 13, 25);
-	
-	//PS.color(16, 14, 0x8C3313);
-	PS.color(17, 14, 0x8C3313);
-	PS.color(18, 14, 0x8C3313);
-	PS.color(14, 14, 0x8C3313);
-	PS.color(13, 14, 0x8C3313);	
-	PS.color(12, 14, 0x8C3313);
-	
-	PS.color(17, 15, 0x8C3313);
-	PS.color(18, 15, 0x8C3313);
-	PS.color(14, 15, 0x8C3313);
-	PS.color(13, 15, 0x8C3313);	
-	PS.color(12, 15, 0x8C3313);
-	
-	PS.color(18, 16, 0x8C3313);
-	PS.color(17, 16, 0x8C3313);	
-	PS.color(12, 16, 0x8C3313);
-	
-	PS.color(17, 17, 0x8C3313);
-	PS.color(18, 17, 0x8C3313);
-	PS.color(16, 17, 0x8C3313);
-	PS.color(15, 17, 0x8C3313);	
-	
-	PS.color(17, 18, 0x8C3313);
-	PS.color(14, 18, 0x8C3313);
-	PS.color(16, 18, 0x8C3313);
-	PS.color(15, 18, 0x8C3313);
-	PS.color(13, 18, 0x8C3313);
-	PS.color(18, 18, 0xFFD700);
-	PS.radius(18, 18, 50);
-
+	buildFromFile : function(mapNumber) {
+		PS.color(PS.ALL, PS.ALL, PS.COLOR_WHITE);
+		switch(mapNumber) {
+			case 1:
+				MAP.WIDTH = MAP.MAP1[0].length;
+				MAP.HEIGHT = MAP.MAP1.length;
+				break;
+			case 2:
+				MAP.WIDTH = MAP.MAP2[0].length;
+				MAP.HEIGHT = MAP.MAP2.length;
+				break;
+			case 3:
+				MAP.WIDTH = MAP.MAP3[0].length;
+				MAP.HEIGHT = MAP.MAP3.length;
+				break;
+			case 4:
+				MAP.WIDTH = MAP.MAP4[0].length;
+				MAP.HEIGHT = MAP.MAP4.length;
+				break;
+			case 5:
+				MAP.WIDTH = MAP.MAP5[0].length;
+				MAP.HEIGHT = MAP.MAP5.length;
+				break;
+			case 6:
+				MAP.WIDTH = MAP.MAP6[0].length;
+				MAP.HEIGHT = MAP.MAP6.length;
+				break;
+			case 7:
+				MAP.WIDTH = MAP.MAP7[0].length;
+				MAP.HEIGHT = MAP.MAP7.length;
+				break;
+			case 8:
+				MAP.WIDTH = MAP.MAP8[0].length;
+				MAP.HEIGHT = MAP.MAP8.length;
+				break;
+			case 9:
+				MAP.WIDTH = MAP.MAP9[0].length;
+				MAP.HEIGHT = MAP.MAP9.length;
+				break;
+			case 10:
+				MAP.WIDTH = MAP.MAP10[0].length;
+				MAP.HEIGHT = MAP.MAP10.length;
+				break;
+			default:
+				break;
+		}
+			var color;
+			for (var i = 0; i<MAP.HEIGHT;i++) {
+				for (var j = 0; j<MAP.WIDTH;j++) {
+					switch(MAP.MAPS[mapNumber-1][i][j]) {
+						case "#":
+							PS.color(j, i, 0x8C3313);
+							break;
+						case "_":
+							PS.color(j, i, PS.COLOR_WHITE);
+							break;
+						case "S":
+							PS.color(j, i, 0xE6A644);
+							PS.radius(j, i, 50);
+							PLAYER.X_POS = j;
+							PLAYER.Y_POS = i;
+							break;
+						case "B":
+							PS.color(j, i, 0x738F9B);
+							PS.radius(j, i, 25);
+							break;
+						case "X":
+							PS.color(j, i, 0xFFD700);
+							PS.radius(j, i, 50);
+							break;
+						case "~":
+							PS.color(j, i, 0x40A4DF);
+							break;
+						case "o":
+							PS.color(j, i, 0x7D26CD);
+							PS.radius(j, i, 50);
+							break;
+						case "|":
+							PS.color(j, i, 0x7D26CD);
+							break;
+						case "b":
+							PS.color(j, i, 0xFF0000);
+							PS.radius(j, i, 50);
+							break;
+						default:
+							break;
+					}
+				}
+			}
 	},
+	
 };
 
 var GRID = {
@@ -166,12 +182,15 @@ var PLAYER = {
 			PLAYER.Y_POS = newY;
 		}
 		else if (result.r == 255 && result.g == 215 && result.b == 0) {
-			MAP.GAME_OVER = true;
-			PS.color(PLAYER.X_POS, newY, 0xE6A644);
-			PS.radius(PLAYER.X_POS, newY, 50);
-			PS.color(PLAYER.X_POS, PLAYER.Y_POS, PS.COLOR_WHITE);
-			PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 0);
-			PS.statusText("YOU WON!");
+			if (MAP.currentMap < 11) {
+				MAP.currentMap += 1;
+				PS.color(PLAYER.X_POS, newY, 0xE6A644);
+				PS.radius(PLAYER.X_POS, newY, 50);
+				PS.color(PLAYER.X_POS, PLAYER.Y_POS, PS.COLOR_WHITE);
+				PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 0);
+				//PS.statusText("YOU WON!");
+				MAP.buildFromFile(MAP.currentMap);
+			}
 		}
 		else if (result.r == 115 && result.g == 143 && result.b == 155) {
 			var otherY;
@@ -204,12 +223,12 @@ var PLAYER = {
 		else if (result.r == 255 && result.g == 0 && result.b == 0) {
 			PS.color(PLAYER.X_POS, newY, 0xE6A644);
 			PLAYER.die(1, PLAYER.X_POS, newY);
-			MAP.build();
+			MAP.buildFromFile(MAP.currentMap);
 		}
 		else if (result.r == 64 && result.g == 164 && result.b == 223) {
 			PS.color(PLAYER.X_POS, newY, 0xE6A644);
 			PLAYER.die(2, PLAYER.X_POS, newY);
-			MAP.build();
+			MAP.buildFromFile(MAP.currentMap);
 		}
 		
 	},
@@ -268,12 +287,12 @@ var PLAYER = {
 		else if (result.r == 255 && result.g == 0 && result.b == 0) {
 			PS.color(newX, PLAYER.Y_POS, 0xE6A644);
 			PLAYER.die(1, newX, PLAYER.Y_POS);
-			MAP.build();
+			MAP.buildFromFile(MAP.currentMap);
 		}
 		else if (result.r == 64 && result.g == 164 && result.b == 223) {
 			PS.color(newX, PLAYER.Y_POS, 0xE6A644);
 			PLAYER.die(2, newX, PLAYER.Y_POS);
-			MAP.build();
+			MAP.buildFromFile(MAP.currentMap);
 		}
 	},
 	
@@ -321,8 +340,10 @@ PS.init = function( system, options ) {
 	PS.statusText("GET TO THE EXIT!");
 	PS.audioLoad("fx_bang");
 	PS.audioLoad("fx_drip2");
-	
-	MAP.build();
+	MAP.MAPS.push(MAP.MAP1);
+	MAP.MAPS.push(MAP.MAP2);
+	MAP.buildFromFile(1);
+	//MAP.build();
 	
 	
 	// Add any other initialization code you need here
@@ -460,7 +481,7 @@ PS.keyUp = function( key, shift, ctrl, options ) {
 			PLAYER.moveVertically(2);
 			break;
 		case 114:
-			MAP.build();
+			MAP.buildFromFile(MAP.currentMap);
 			break;
 		default:
 			break;
