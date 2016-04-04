@@ -50,6 +50,8 @@ var MAP = {
 	
 	MAP7: [["~","~","~","~","~","~","~","~","~","~","~","~","~","~","~","~","~","~","~","~","~"],["~","~","~","~","~","~","~","~","~","~","~","~","~","~","~","~","~","~","~","~","~"],["~","~","~","~","~","~","_","_","~","~","_","~","~","~","~","~","B","~","X","~","~"],["~","~","_","_","_","~","_","B","B","~","B","B","~","~","~","B","~","~","~","~","~"],["~","~","_","S","_","~","~","~","B","~","B","~","~","~","B","~","~","~","~","~","~"],["~","~","_","B","_","~","~","~","~","~","~","~","~","B","~","~","~","~","~","~","~"],["~","~","_","_","_","~","~","~","~","_","_","_","B","~","~","~","~","~","~","~", "~"],["~","~","~","~","~","~","~","~","~","~","~","~","~","~","~","~","~","~","~","~","~"],["~","~","~","~","~","~","~","~","~","~","~","~","~","~","~","~","~","~","~","~","~"]],
 	
+	MAP8: [["#","#","#","#","#","#","#","#","#","#","#","#","#"],["#","_","_","_","#","_","_","_","#","_","_","_","#"],["#","_","B","_","|","_","S","_","|","_","o","_","#"],["#","_","_","_","#","_","_","_","#","_","_","_","#"],["#","#","#","#","#","#","_","#","#","#","_","#","#"],["#","_","_","_","#","_","_","_","#","_","_","_","#"],["#","_","~","_","b","_","B","_","_","_","P","_","#"],["#","_","_","_","#","_","_","_","#","_","_","_","#"],["#","#","b","#","#","#","#","#","#","#","B","#","#"],["#","_","_","_","#","_","_","_","#","D","D","D","#"],["#","_","P","_","_","_","#","_","D","D","B","D","#"],["#","_","_","_","#","_","_","_","#","D","D","D","#"],["#","#","#","#","#","#","|","#","#","#","#","#","#"],["#","_","_","_","#","D","_","D","#","_","_","_","#"],["#","_","X","_","~","_","D","_","D","_","B","_","#"],["#","_","_","_","#","D","_","D","#","_","_","_","#"],["#","#","#","#","#","#","#","#","#","#","#","#","#"]],
+	
 	MAPS: [],
 	
 	currentMap: 1,
@@ -60,15 +62,19 @@ var MAP = {
 	anim: 0,
 	numOfPlates: 0,
 	pressedPlates: 0,
+	onTop: false,
 	
 	buildFromFile : function(mapNumber) {
 		PS.color(PS.ALL, PS.ALL, PS.COLOR_WHITE);
 		PS.border(PS.ALL, PS.ALL, 0);
 		PS.radius(PS.ALL, PS.ALL, 0);
+		MAP.numOfPlates = 0;
+		MAP.pressedPlates = 0;
 		switch(mapNumber) {
 			case 1:
 				MAP.WIDTH = MAP.MAP1[0].length;
 				MAP.HEIGHT = MAP.MAP1.length;
+				PS.statusText("GET TO THE EXIT!");
 				break;
 			case 2:
 				MAP.WIDTH = MAP.MAP2[0].length;
@@ -151,6 +157,10 @@ var MAP = {
 						case "D":
 							PS.color(j, i, 0x784800);
 							break;
+						case "P":
+							PS.color(j, i, 0x785AB4);
+							PS.radius(j, i, 25);
+							break;
 						default:
 							break;
 					}
@@ -172,7 +182,6 @@ var MAP = {
 				}
 			}
 		}
-		
 	},
 	
 };
@@ -205,6 +214,23 @@ var PLAYER = {
 		}
 		var result = PS.unmakeRGB(PS.color(PLAYER.X_POS, newY), {});
 		if (result.r == 255 && result.g == 255 && result.b == 255 || result.r == 120 && result.g == 72 && result.b == 0) {
+			if (MAP.onTop) {
+				PS.color(PLAYER.X_POS, newY, 0xE6A644);
+				PS.radius(PLAYER.X_POS, newY, 50);
+				PS.color(PLAYER.X_POS, PLAYER.Y_POS, 0x7D26CD);
+				PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 50);
+				MAP.onTop = false;
+			}
+			else {
+				PS.color(PLAYER.X_POS, newY, 0xE6A644);
+				PS.radius(PLAYER.X_POS, newY, 50);
+				PS.color(PLAYER.X_POS, PLAYER.Y_POS, PS.COLOR_WHITE);
+				PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 0);
+			}
+			PLAYER.Y_POS = newY;
+		}
+		else if (result.r == 125 && result.g == 38 && result.b == 205) {
+			MAP.onTop = true;
 			PS.color(PLAYER.X_POS, newY, 0xE6A644);
 			PS.radius(PLAYER.X_POS, newY, 50);
 			PS.color(PLAYER.X_POS, PLAYER.Y_POS, PS.COLOR_WHITE);
@@ -212,7 +238,7 @@ var PLAYER = {
 			PLAYER.Y_POS = newY;
 		}
 		else if (result.r == 255 && result.g == 215 && result.b == 0) {
-			if (MAP.currentMap < 8) {
+			if (MAP.currentMap < 7) {
 				MAP.currentMap += 1;
 				PS.color(PLAYER.X_POS, newY, 0xE6A644);
 				PS.radius(PLAYER.X_POS, newY, 50);
@@ -221,8 +247,113 @@ var PLAYER = {
 				//PS.statusText("YOU WON!");
 				MAP.buildFromFile(MAP.currentMap);
 			}
+			else {
+				PS.color(PS.ALL, PS.ALL, PS.COLOR_WHITE);
+				PS.statusText("YOU ESCAPED! Press R to Play Again!");
+				MAP.currentMap = 1;
+			}
 		}
 		else if (result.r == 115 && result.g == 143 && result.b == 155) {
+			var otherY;
+			if (direction == 1) {
+				otherY = newY-1;
+			}
+			else {
+				otherY = newY+1;
+			}
+			var secondResult = PS.unmakeRGB(PS.color(PLAYER.X_POS, otherY), {});
+			if (secondResult.r == 255 && secondResult.g == 255 && secondResult.b == 255) {
+				if (MAP.onTop) {
+					PS.color(PLAYER.X_POS, newY, 0xE6A644);
+					PS.radius(PLAYER.X_POS, newY, 50);
+					PS.color(PLAYER.X_POS, PLAYER.Y_POS, 0x7D26CD);
+					PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 50);
+					PS.color(PLAYER.X_POS, otherY, 0x738F9B);
+					PS.radius(PLAYER.X_POS, otherY, 25);
+				}
+				else {
+					PS.color(PLAYER.X_POS, newY, 0xE6A644);
+					PS.radius(PLAYER.X_POS, newY, 50);
+					PS.color(PLAYER.X_POS, PLAYER.Y_POS, PS.COLOR_WHITE);
+					PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 0);
+					PS.color(PLAYER.X_POS, otherY, 0x738F9B);
+					PS.radius(PLAYER.X_POS, otherY, 25);
+				}
+				PLAYER.Y_POS = newY;
+				MAP.onTop = false;
+			}
+			else if (secondResult.r == 64 && secondResult.g == 164 && secondResult.b == 223) {
+				if (MAP.onTOP) {
+					PS.color(PLAYER.X_POS, newY, 0xE6A644);
+					PS.radius(PLAYER.X_POS, newY, 50);
+					PS.color(PLAYER.X_POS, PLAYER.Y_POS, 0x7D26CD);
+					PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 50);
+					PS.color(PLAYER.X_POS, otherY, 0x784800);
+				}
+				else {
+					PS.color(PLAYER.X_POS, newY, 0xE6A644);
+					PS.radius(PLAYER.X_POS, newY, 50);
+					PS.color(PLAYER.X_POS, PLAYER.Y_POS, PS.COLOR_WHITE);
+					PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 0);
+					PS.color(PLAYER.X_POS, otherY, 0x784800);
+				}
+				PLAYER.Y_POS = newY;
+				MAP.onTop = false;
+				
+			}
+			else if (secondResult.r == 125 && secondResult.g == 38 && secondResult.b == 205) {
+				if (MAP.onTop) {
+					PS.color(PLAYER.X_POS, newY, 0xE6A644);
+					PS.radius(PLAYER.X_POS, newY, 50);
+					PS.color(PLAYER.X_POS, PLAYER.Y_POS, 0x7D26CD);
+					PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 50);
+					PS.color(PLAYER.X_POS, otherY, 0x785AB4);
+					PS.radius(PLAYER.X_POS, otherY, 25);
+				}
+				else {
+					PS.color(PLAYER.X_POS, newY, 0xE6A644);
+					PS.radius(PLAYER.X_POS, newY, 50);
+					PS.color(PLAYER.X_POS, PLAYER.Y_POS, PS.COLOR_WHITE);
+					PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 0);
+					PS.color(PLAYER.X_POS, otherY, 0x785AB4);
+					PS.radius(PLAYER.X_POS, otherY, 25);
+				}
+				PLAYER.Y_POS = newY;
+				MAP.pressedPlates += 1;
+				MAP.checkGates();
+				MAP.onTop = false;
+			}
+			else if (secondResult.r == 255 && secondResult.g == 0 && secondResult.b == 0) {
+				if (MAP.onTop) {
+					PS.color(PLAYER.X_POS, newY, 0xE6A644);
+					PS.radius(PLAYER.X_POS, newY, 50);
+					PS.color(PLAYER.X_POS, PLAYER.Y_POS, PS.COLOR_WHITE);
+					PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 0);
+					PS.color(PLAYER.X_POS, otherY, PS.COLOR_WHITE);
+				}
+				else {
+					PS.color(PLAYER.X_POS, newY, 0xE6A644);
+					PS.radius(PLAYER.X_POS, newY, 50);
+					PS.color(PLAYER.X_POS, PLAYER.Y_POS, PS.COLOR_WHITE);
+					PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 0);
+					PS.color(PLAYER.X_POS, otherY, PS.COLOR_WHITE);
+				}
+				PLAYER.Y_POS = newY;
+				MAP.onTop = false;
+			}
+
+		}
+		else if (result.r == 255 && result.g == 0 && result.b == 0) {
+			PS.color(PLAYER.X_POS, newY, 0xE6A644);
+			PLAYER.die(1, PLAYER.X_POS, newY);
+			MAP.buildFromFile(MAP.currentMap);
+		}
+		else if (result.r == 64 && result.g == 164 && result.b == 223) {
+			PS.color(PLAYER.X_POS, newY, 0xE6A644);
+			PLAYER.die(2, PLAYER.X_POS, newY);
+			MAP.buildFromFile(MAP.currentMap);
+		}
+		else if (result.r == 120 && result.g == 90 && result.b == 180) {
 			var otherY;
 			if (direction == 1) {
 				otherY = newY-1;
@@ -267,17 +398,9 @@ var PLAYER = {
 				PS.color(PLAYER.X_POS, otherY, PS.COLOR_WHITE);
 				PLAYER.Y_POS = newY;
 			}
-
-		}
-		else if (result.r == 255 && result.g == 0 && result.b == 0) {
-			PS.color(PLAYER.X_POS, newY, 0xE6A644);
-			PLAYER.die(1, PLAYER.X_POS, newY);
-			MAP.buildFromFile(MAP.currentMap);
-		}
-		else if (result.r == 64 && result.g == 164 && result.b == 223) {
-			PS.color(PLAYER.X_POS, newY, 0xE6A644);
-			PLAYER.die(2, PLAYER.X_POS, newY);
-			MAP.buildFromFile(MAP.currentMap);
+			MAP.onTop = true;
+			MAP.pressedPlates -= 1;
+			MAP.checkGates();
 		}
 		
 	},
@@ -292,6 +415,23 @@ var PLAYER = {
 		}
 		var result = PS.unmakeRGB(PS.color(newX, PLAYER.Y_POS), {});
 		if (result.r == 255 && result.g == 255 && result.b == 255 || result.r == 120 && result.g == 72 && result.b == 0) {
+			if (MAP.onTop) {
+				PS.color(newX, PLAYER.Y_POS, 0xE6A644);
+				PS.radius(newX, PLAYER.Y_POS, 50);
+				PS.color(PLAYER.X_POS, PLAYER.Y_POS, 0x7D26CD);
+				PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 50);
+				MAP.onTop = false;
+			}
+			else {
+				PS.color(newX, PLAYER.Y_POS, 0xE6A644);
+				PS.radius(newX, PLAYER.Y_POS, 50);
+				PS.color(PLAYER.X_POS, PLAYER.Y_POS, PS.COLOR_WHITE);
+				PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 0);
+			}
+			PLAYER.X_POS = newX;
+		}
+		else if (result.r == 125 && result.g == 38 && result.b == 205) {
+			MAP.onTop = true;
 			PS.color(newX, PLAYER.Y_POS, 0xE6A644);
 			PS.radius(newX, PLAYER.Y_POS, 50);
 			PS.color(PLAYER.X_POS, PLAYER.Y_POS, PS.COLOR_WHITE);
@@ -299,7 +439,7 @@ var PLAYER = {
 			PLAYER.X_POS = newX;
 		}
 		else if (result.r == 255 && result.g == 215 && result.b == 0) {
-			if (MAP.currentMap < 8) {
+			if (MAP.currentMap < 7) {
 				MAP.currentMap += 1;
 				PS.color(newX, PLAYER.Y_POS, 0xE6A644);
 				PS.radius(newX, PLAYER.Y_POS, 50);
@@ -308,6 +448,12 @@ var PLAYER = {
 				//PS.statusText("YOU WON!");
 				MAP.buildFromFile(MAP.currentMap);
 			}
+			else {
+				PS.color(PS.ALL, PS.ALL, PS.COLOR_WHITE);
+				PS.statusText("YOU ESCAPED! Press R to Play Again!");
+				MAP.currentMap = 1;
+			}
+				
 		}
 		else if (result.r == 115 && result.g == 143 && result.b == 155) {
 			var otherX;
@@ -319,40 +465,82 @@ var PLAYER = {
 			}
 			var secondResult = PS.unmakeRGB(PS.color(otherX, PLAYER.Y_POS), {});
 			if (secondResult.r == 255 && secondResult.g == 255 && secondResult.b == 255) {
-				PS.color(newX, PLAYER.Y_POS, 0xE6A644);
-				PS.radius(newX, PLAYER.Y_POS, 50);
-				PS.color(PLAYER.X_POS, PLAYER.Y_POS, PS.COLOR_WHITE);
-				PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 0);
-				PS.color(otherX, PLAYER.Y_POS, 0x738F9B);
-				PS.radius(otherX, PLAYER.Y_POS, 25);
+				if (MAP.onTop) {
+					PS.color(newX, PLAYER.Y_POS, 0xE6A644);
+					PS.radius(newX, PLAYER.Y_POS, 50);
+					PS.color(PLAYER.X_POS, PLAYER.Y_POS, 0x7D26CD);
+					PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 50);
+					PS.color(otherX, PLAYER.Y_POS, 0x738F9B);
+					PS.radius(otherX, PLAYER.Y_POS, 25);
+				}
+				else {
+					PS.color(newX, PLAYER.Y_POS, 0xE6A644);
+					PS.radius(newX, PLAYER.Y_POS, 50);
+					PS.color(PLAYER.X_POS, PLAYER.Y_POS, PS.COLOR_WHITE);
+					PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 0);
+					PS.color(otherX, PLAYER.Y_POS, 0x738F9B);
+					PS.radius(otherX, PLAYER.Y_POS, 25);
+				}
 				PLAYER.X_POS = newX;
+				MAP.onTop = false;
 			}
 			else if (secondResult.r == 64 && secondResult.g == 164 && secondResult.b == 223) {
-				PS.color(newX, PLAYER.Y_POS, 0xE6A644);
-				PS.radius(newX, PLAYER.Y_POS, 50);
-				PS.color(PLAYER.X_POS, PLAYER.Y_POS, PS.COLOR_WHITE);
-				PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 0);
-				PS.color(otherX, PLAYER.Y_POS, 0x784800);
+				if (MAP.onTop) {
+					PS.color(newX, PLAYER.Y_POS, 0xE6A644);
+					PS.radius(newX, PLAYER.Y_POS, 50);
+					PS.color(PLAYER.X_POS, PLAYER.Y_POS, 0x7D26CD);
+					PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 50);
+					PS.color(otherX, PLAYER.Y_POS, 0x784800);
+				}
+				else {
+					PS.color(newX, PLAYER.Y_POS, 0xE6A644);
+					PS.radius(newX, PLAYER.Y_POS, 50);
+					PS.color(PLAYER.X_POS, PLAYER.Y_POS, PS.COLOR_WHITE);
+					PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 0);
+					PS.color(otherX, PLAYER.Y_POS, 0x784800);
+				}
 				PLAYER.X_POS = newX;
+				MAP.onTop = false;
 			}
 			else if (secondResult.r == 125 && secondResult.g == 38 && secondResult.b == 205) {
-				PS.color(newX, PLAYER.Y_POS, 0xE6A644);
-				PS.radius(newX, PLAYER.Y_POS, 50);
-				PS.color(PLAYER.X_POS, PLAYER.Y_POS, PS.COLOR_WHITE);
-				PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 0);
-				PS.color(otherX, PLAYER.Y_POS, 0x785AB4);
-				PS.radius(otherX, PLAYER.Y_POS, 25);
+				if (MAP.onTop) {
+					PS.color(newX, PLAYER.Y_POS, 0xE6A644);
+					PS.radius(newX, PLAYER.Y_POS, 50);
+					PS.color(PLAYER.X_POS, PLAYER.Y_POS, 0x7D26CD);
+					PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 50);
+					PS.color(otherX, PLAYER.Y_POS, 0x785AB4);
+					PS.radius(otherX, PLAYER.Y_POS, 25);
+				}
+				else {
+					PS.color(newX, PLAYER.Y_POS, 0xE6A644);
+					PS.radius(newX, PLAYER.Y_POS, 50);
+					PS.color(PLAYER.X_POS, PLAYER.Y_POS, PS.COLOR_WHITE);
+					PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 0);
+					PS.color(otherX, PLAYER.Y_POS, 0x785AB4);
+					PS.radius(otherX, PLAYER.Y_POS, 25);
+				}
 				PLAYER.X_POS = newX;
 				MAP.pressedPlates += 1;
 				MAP.checkGates();
+				MAP.onTop = false;
 			}
 			else if (secondResult.r == 255 && secondResult.g == 0 && secondResult.b == 0) {
-				PS.color(newX, PLAYER.Y_POS, 0xE6A644);
-				PS.radius(newX, PLAYER.Y_POS, 50);
-				PS.color(PLAYER.X_POS, PLAYER.Y_POS, PS.COLOR_WHITE);
-				PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 0);
-				PS.color(otherX, PLAYER.Y_POS, PS.COLOR_WHITE);
+				if (MAP.onTop) {
+					PS.color(newX, PLAYER.Y_POS, 0xE6A644);
+					PS.radius(newX, PLAYER.Y_POS, 50);
+					PS.color(PLAYER.X_POS, PLAYER.Y_POS, 0x7D26CD);
+					PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 50);
+					PS.color(otherX, PLAYER.Y_POS, PS.COLOR_WHITE);
+				}
+				else {
+					PS.color(newX, PLAYER.Y_POS, 0xE6A644);
+					PS.radius(newX, PLAYER.Y_POS, 50);
+					PS.color(PLAYER.X_POS, PLAYER.Y_POS, PS.COLOR_WHITE);
+					PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 0);
+					PS.color(otherX, PLAYER.Y_POS, PS.COLOR_WHITE);
+				}
 				PLAYER.X_POS = newX;
+				MAP.onTop = false;
 			}
 		}
 		else if (result.r == 255 && result.g == 0 && result.b == 0) {
@@ -364,6 +552,98 @@ var PLAYER = {
 			PS.color(newX, PLAYER.Y_POS, 0xE6A644);
 			PLAYER.die(2, newX, PLAYER.Y_POS);
 			MAP.buildFromFile(MAP.currentMap);
+		}
+		
+		else if (result.r == 120 && result.g == 90 && result.b == 180) {
+				var otherX;
+			if (direction == 1) {
+				otherX = newX - 1;
+			}
+			else {
+				otherX = newX + 1;
+			}
+			var secondResult = PS.unmakeRGB(PS.color(otherX, PLAYER.Y_POS), {});
+			if (secondResult.r == 255 && secondResult.g == 255 && secondResult.b == 255) {
+				if (MAP.onTop) {
+					PS.color(newX, PLAYER.Y_POS, 0xE6A644);
+					PS.radius(newX, PLAYER.Y_POS, 50);
+					PS.color(PLAYER.X_POS, PLAYER.Y_POS, 0x7D26CD);
+					PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 50);
+					PS.color(otherX, PLAYER.Y_POS, 0x738F9B);
+					PS.radius(otherX, PLAYER.Y_POS, 25);
+				}
+				else {
+					PS.color(newX, PLAYER.Y_POS, 0xE6A644);
+					PS.radius(newX, PLAYER.Y_POS, 50);
+					PS.color(PLAYER.X_POS, PLAYER.Y_POS, PS.COLOR_WHITE);
+					PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 0);
+					PS.color(otherX, PLAYER.Y_POS, 0x738F9B);
+					PS.radius(otherX, PLAYER.Y_POS, 25);
+				}
+				PLAYER.X_POS = newX;
+				MAP.onTop = false;
+			}
+			else if (secondResult.r == 64 && secondResult.g == 164 && secondResult.b == 223) {
+				if (MAP.onTop) {
+					PS.color(newX, PLAYER.Y_POS, 0xE6A644);
+					PS.radius(newX, PLAYER.Y_POS, 50);
+					PS.color(PLAYER.X_POS, PLAYER.Y_POS, 0x7D26CD);
+					PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 50);
+					PS.color(otherX, PLAYER.Y_POS, 0x784800);
+				}
+				else {
+					PS.color(newX, PLAYER.Y_POS, 0xE6A644);
+					PS.radius(newX, PLAYER.Y_POS, 50);
+					PS.color(PLAYER.X_POS, PLAYER.Y_POS, PS.COLOR_WHITE);
+					PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 0);
+					PS.color(otherX, PLAYER.Y_POS, 0x784800);
+				}
+				PLAYER.X_POS = newX;
+				MAP.onTop = false;
+			}
+			else if (secondResult.r == 125 && secondResult.g == 38 && secondResult.b == 205) {
+				if (MAP.onTop) {
+					PS.color(newX, PLAYER.Y_POS, 0xE6A644);
+					PS.radius(newX, PLAYER.Y_POS, 50);
+					PS.color(PLAYER.X_POS, PLAYER.Y_POS, 0x7D26CD);
+					PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 50);
+					PS.color(otherX, PLAYER.Y_POS, 0x785AB4);
+					PS.radius(otherX, PLAYER.Y_POS, 25);
+				}
+				else {
+					PS.color(newX, PLAYER.Y_POS, 0xE6A644);
+					PS.radius(newX, PLAYER.Y_POS, 50);
+					PS.color(PLAYER.X_POS, PLAYER.Y_POS, PS.COLOR_WHITE);
+					PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 0);
+					PS.color(otherX, PLAYER.Y_POS, 0x785AB4);
+					PS.radius(otherX, PLAYER.Y_POS, 25);
+				}
+				PLAYER.X_POS = newX;
+				MAP.pressedPlates += 1;
+				MAP.checkGates();
+				MAP.onTop = false;
+			}
+			else if (secondResult.r == 255 && secondResult.g == 0 && secondResult.b == 0) {
+				if (MAP.onTop) {
+					PS.color(newX, PLAYER.Y_POS, 0xE6A644);
+					PS.radius(newX, PLAYER.Y_POS, 50);
+					PS.color(PLAYER.X_POS, PLAYER.Y_POS, 0x7D26CD);
+					PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 50);
+					PS.color(otherX, PLAYER.Y_POS, PS.COLOR_WHITE);
+				}
+				else {
+					PS.color(newX, PLAYER.Y_POS, 0xE6A644);
+					PS.radius(newX, PLAYER.Y_POS, 50);
+					PS.color(PLAYER.X_POS, PLAYER.Y_POS, PS.COLOR_WHITE);
+					PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 0);
+					PS.color(otherX, PLAYER.Y_POS, PS.COLOR_WHITE);
+				}
+				PLAYER.X_POS = newX;
+				MAP.onTop = false;
+			}
+			MAP.onTop = true;
+			MAP.pressedPlates -= 1;
+			MAP.checkGates();
 		}
 	},
 	
@@ -418,6 +698,7 @@ PS.init = function( system, options ) {
 	MAP.MAPS.push(MAP.MAP5);
 	MAP.MAPS.push(MAP.MAP6);
 	MAP.MAPS.push(MAP.MAP7);
+	//MAP.MAPS.push(MAP.MAP8);
 	MAP.buildFromFile(MAP.currentMap);
 	//MAP.build();
 	
@@ -558,6 +839,34 @@ PS.keyUp = function( key, shift, ctrl, options ) {
 			break;
 		case 114:
 			MAP.buildFromFile(MAP.currentMap);
+			break;
+		case 49:
+			MAP.buildFromFile(1);
+			MAP.currentMap = 1;
+			break;
+		case 50:
+			MAP.buildFromFile(2);
+			MAP.currentMap = 2;
+			break;
+		case 51:
+			MAP.buildFromFile(3);
+			MAP.currentMap = 3;
+			break;
+		case 52:
+			MAP.buildFromFile(4);
+			MAP.currentMap = 4;
+			break;
+		case 53:
+			MAP.buildFromFile(5);
+			MAP.currentMap = 5;
+			break;
+		case 54:
+			MAP.buildFromFile(6);
+			MAP.currentMap = 6;
+			break;
+		case 55:
+			MAP.buildFromFile(7);
+			MAP.currentMap = 7;
 			break;
 		default:
 			break;
