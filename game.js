@@ -48,14 +48,12 @@ var MAP = {
 	GAME_OVER: false,
 	myTimer: 0,
 	anim: 0,
-	plates: [
-		x_pos = 15, 
-		y_pos = 14,
-		],
-	numOfPlates: 1,
+	numOfPlates: 0,
+	pressedPlates: 0,
 	
 	buildFromFile : function(mapNumber) {
 		PS.color(PS.ALL, PS.ALL, PS.COLOR_WHITE);
+		PS.border(PS.ALL, PS.ALL, 0);
 		switch(mapNumber) {
 			case 1:
 				MAP.WIDTH = MAP.MAP1[0].length;
@@ -130,9 +128,10 @@ var MAP = {
 						case "o":
 							PS.color(j, i, 0x7D26CD);
 							PS.radius(j, i, 50);
+							MAP.numOfPlates += 1;
 							break;
 						case "|":
-							PS.color(j, i, 0x7D26CD);
+							PS.color(j, i, 0x7D26CE);
 							break;
 						case "b":
 							PS.color(j, i, 0xFF0000);
@@ -143,6 +142,23 @@ var MAP = {
 					}
 				}
 			}
+	},
+	
+	checkGates : function() {
+		var result;
+		if (MAP.numOfPlates == MAP.pressedPlates) {
+			for (var i=0; i<32;i++) {
+				for (var j=0; j<32;j++) {
+					result = PS.unmakeRGB(PS.color(i, j), {});
+					if (result.r == 125 && result.g == 38 && result.b == 206) {
+						PS.color(i, j, PS.COLOR_WHITE);
+						PS.border(i, j, 1);
+						PS.borderColor(i, j, 125, 38, 206);
+					}
+				}
+			}
+		}
+		
 	},
 	
 };
@@ -218,6 +234,16 @@ var PLAYER = {
 				PS.color(PLAYER.X_POS, otherY, 0x784800);
 				PLAYER.Y_POS = newY;
 			}
+			else if (secondResult.r == 125 && secondResult.g == 38 && secondResult.b == 205) {
+				PS.color(PLAYER.X_POS, newY, 0xE6A644);
+				PS.radius(PLAYER.X_POS, newY, 50);
+				PS.color(PLAYER.X_POS, PLAYER.Y_POS, PS.COLOR_WHITE);
+				PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 0);
+				PS.color(PLAYER.X_POS, otherY, 0x785AB4);
+				PLAYER.Y_POS = newY;
+				MAP.pressedPlates += 1;
+				MAP.checkGates();
+			}
 
 		}
 		else if (result.r == 255 && result.g == 0 && result.b == 0) {
@@ -283,6 +309,16 @@ var PLAYER = {
 				PS.color(otherX, PLAYER.Y_POS, 0x784800);
 				PLAYER.X_POS = newX;
 			}
+			else if (secondResult.r == 125 && secondResult.g == 38 && secondResult.b == 205) {
+				PS.color(newX, PLAYER.Y_POS, 0xE6A644);
+				PS.radius(newX, PLAYER.Y_POS, 50);
+				PS.color(PLAYER.X_POS, PLAYER.Y_POS, PS.COLOR_WHITE);
+				PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 0);
+				PS.color(otherX, PLAYER.Y_POS, 0x785AB4);
+				PLAYER.X_POS = newX;
+				MAP.pressedPlates += 1;
+				MAP.checkGates();
+			}
 		}
 		else if (result.r == 255 && result.g == 0 && result.b == 0) {
 			PS.color(newX, PLAYER.Y_POS, 0xE6A644);
@@ -342,7 +378,7 @@ PS.init = function( system, options ) {
 	PS.audioLoad("fx_drip2");
 	MAP.MAPS.push(MAP.MAP1);
 	MAP.MAPS.push(MAP.MAP2);
-	MAP.buildFromFile(1);
+	MAP.buildFromFile(2);
 	//MAP.build();
 	
 	
