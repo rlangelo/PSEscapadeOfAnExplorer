@@ -1002,6 +1002,7 @@ PS.keyUp = function( key, shift, ctrl, options ) {
 			MAP.buildFromFile(MAP.currentMap);
 			PS.statusText("Get to the Exit!");
 			break;
+			/*
 		case 49:
 			MAP.buildFromFile(1);
 			MAP.currentMap = 1;
@@ -1030,6 +1031,7 @@ PS.keyUp = function( key, shift, ctrl, options ) {
 			MAP.buildFromFile(7);
 			MAP.currentMap = 7;
 			break;
+			*/
 		default:
 			break;
 	}
