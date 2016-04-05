@@ -131,7 +131,8 @@ var MAP = {
 							PS.radius(X, i, 50);
 							break;
 						case "D":
-							PS.color(X, i, 0x784800);
+							//PS.color(X, i, 0x786600);
+							PS.color(X, i, 0x786600);
 							break;
 						case "P":
 							PS.color(X, i, 0x785AB4);
@@ -237,8 +238,8 @@ var PLAYER = {
 			newY = PLAYER.Y_POS+1;
 		}
 		var result = PS.unmakeRGB(PS.color(PLAYER.X_POS, newY), {});
-		if (result.r == 255 && result.g == 255 && result.b == 255 || result.r == 120 && result.g == 72 && result.b == 0) {
-			if (result.r == 120 && result.g == 72 && result.b == 0) {
+		if (result.r == 255 && result.g == 255 && result.b == 255 || result.r == 120 && result.g == 102 && result.b == 0) {
+			if (result.r == 120 && result.g == 102 && result.b == 0) {
 				PS.audioPlay("perc_shaker");
 			}
 			if (MAP.onTop) {
@@ -317,14 +318,14 @@ var PLAYER = {
 					PS.radius(PLAYER.X_POS, newY, 50);
 					PS.color(PLAYER.X_POS, PLAYER.Y_POS, 0x7D26CD);
 					PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 50);
-					PS.color(PLAYER.X_POS, otherY, 0x784800);
+					PS.color(PLAYER.X_POS, otherY, 0x786600);
 				}
 				else {
 					PS.color(PLAYER.X_POS, newY, 0xE6A644);
 					PS.radius(PLAYER.X_POS, newY, 50);
 					PS.color(PLAYER.X_POS, PLAYER.Y_POS, PS.COLOR_WHITE);
 					PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 0);
-					PS.color(PLAYER.X_POS, otherY, 0x784800);
+					PS.color(PLAYER.X_POS, otherY, 0x786600);
 				}
 				PS.audioPlay("fx_drip2");
 				PLAYER.Y_POS = newY;
@@ -410,7 +411,7 @@ var PLAYER = {
 				PS.radius(PLAYER.X_POS, newY, 50);
 				PS.color(PLAYER.X_POS, PLAYER.Y_POS, PS.COLOR_WHITE);
 				PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 0);
-				PS.color(PLAYER.X_POS, otherY, 0x784800);
+				PS.color(PLAYER.X_POS, otherY, 0x786600);
 				PLAYER.Y_POS = newY;
 				MAP.onTop = true;
 				MAP.pressedPlates -= 1;
@@ -454,8 +455,8 @@ var PLAYER = {
 			newX = PLAYER.X_POS+1;
 		}
 		var result = PS.unmakeRGB(PS.color(newX, PLAYER.Y_POS), {});
-		if (result.r == 255 && result.g == 255 && result.b == 255 || result.r == 120 && result.g == 72 && result.b == 0) {
-			if (result.r == 120 && result.g == 72 && result.b == 0) {
+		if (result.r == 255 && result.g == 255 && result.b == 255 || result.r == 120 && result.g == 102 && result.b == 0) {
+			if (result.r == 120 && result.g == 102 && result.b == 0) {
 				PS.audioPlay("perc_shaker");
 			}
 			if (MAP.onTop) {
@@ -535,14 +536,14 @@ var PLAYER = {
 					PS.radius(newX, PLAYER.Y_POS, 50);
 					PS.color(PLAYER.X_POS, PLAYER.Y_POS, 0x7D26CD);
 					PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 50);
-					PS.color(otherX, PLAYER.Y_POS, 0x784800);
+					PS.color(otherX, PLAYER.Y_POS, 0x786600);
 				}
 				else {
 					PS.color(newX, PLAYER.Y_POS, 0xE6A644);
 					PS.radius(newX, PLAYER.Y_POS, 50);
 					PS.color(PLAYER.X_POS, PLAYER.Y_POS, PS.COLOR_WHITE);
 					PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 0);
-					PS.color(otherX, PLAYER.Y_POS, 0x784800);
+					PS.color(otherX, PLAYER.Y_POS, 0x786600);
 				}
 				PS.audioPlay("fx_drip2");
 				PLAYER.X_POS = newX;
@@ -627,7 +628,7 @@ var PLAYER = {
 					PS.radius(newX, PLAYER.Y_POS, 50);
 					PS.color(PLAYER.X_POS, PLAYER.Y_POS, PS.COLOR_WHITE);
 					PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 0);
-					PS.color(otherX, PLAYER.Y_POS, 0x784800);
+					PS.color(otherX, PLAYER.Y_POS, 0x786600);
 					PLAYER.X_POS = newX;
 					MAP.onTop = true;
 					MAP.pressedPlates -= 1;
