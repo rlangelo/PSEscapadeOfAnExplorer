@@ -66,7 +66,7 @@ var MAP = {
 	HEIGHT: 0,
 	GAME_OVER: false,
 	myTimer: 0,
-	anim: 0,
+	anim: 1,
 	numOfPlates: 0,
 	pressedPlates: 0,
 	onTop: false,
@@ -670,13 +670,51 @@ var PLAYER = {
 	},
 	
 	playExplosion : function() {
-		if (MAP.anim < 5) {
+		if (MAP.anim == 1) {
+			PS.color(PS.ALL, PS.ALL, 0xFFFFFF);
+			PS.radius(PS.ALL, PS.ALL, 0);
+			PS.borderColor(PS.ALL, PS.ALL, 0);
+		}
+		if (MAP.anim < 4) {
+			if (MAP.anim == 1) {
+			for (var i=0;i<8;i++){
+				for (var j=0;j<32;j++)
+				{
+					PS.color(j, i, 0x40A4DF);
+				}
+			}
+			}
+			else if(MAP.anim == 2) {
+				for (var i=8;i<16;i++){
+					for (var j=0;j<32;j++)
+					{
+						PS.color(j, i, 0x40A4DF);
+					}
+				}
+			}
+			else if(MAP.anim == 3) {
+				for (var i=16;i<24;i++){
+					for (var j=0;j<32;j++)
+					{
+						PS.color(j, i, 0x40A4DF);
+					}
+				}
+			}
+			else if(MAP.anim == 4) {
+				for (var i=24;i<32;i++){
+					for (var j=0;j<32;j++)
+					{
+						PS.color(j, i, 0x40A4DF);
+					}
+				}
+			}
 			PS.audioPlay("fx_drip2");
 			MAP.anim += 1;
 		}
 		else {
 			PS.timerStop(MAP.myTimer);
 			MAP.anim = 0;
+			MAP.buildFromFile(MAP.currentMap);
 		}
 	},
 	
