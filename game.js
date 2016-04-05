@@ -55,6 +55,13 @@ var MAP = {
 	MAPS: [],
 	
 	currentMap: 1,
+	firstRound: true,
+	secondRound: false,
+	thirdRound: false,
+	fourthRound: false,
+	fifthRound: false,
+	sixthRound: false,
+	counter: 0,
 	WIDTH: 0,
 	HEIGHT: 0,
 	GAME_OVER: false,
@@ -74,13 +81,21 @@ var MAP = {
 			case 1:
 				MAP.WIDTH = MAP.MAP1[0].length;
 				MAP.HEIGHT = MAP.MAP1.length;
-				PS.statusText("GET TO THE EXIT!");
 				break;
 			case 2:
+				if (MAP.secondRound) {
+					PS.statusText("Don't fall in the water!");
+					MAP.secondRound = false;
+					MAP.thirdRound = true;
+				}
 				MAP.WIDTH = MAP.MAP2[0].length;
 				MAP.HEIGHT = MAP.MAP2.length;
 				break;
 			case 3:
+				if (MAP.sixthRound) {
+					PS.statusText("Get to the Exit!");
+					MAP.sixthRound = false;
+				}
 				MAP.WIDTH = MAP.MAP3[0].length;
 				MAP.HEIGHT = MAP.MAP3.length;
 				break;
@@ -665,7 +680,7 @@ PS.init = function( system, options ) {
 
 	PS.gridSize( 32, 32 );
 	PS.border(PS.ALL, PS.ALL, 0);
-	PS.statusText("GET TO THE EXIT!");
+	PS.statusText("Arrow keys to move!");
 	PS.audioLoad("fx_bang");
 	PS.audioLoad("fx_drip2");
 	MAP.MAPS.push(MAP.MAP1);
@@ -800,22 +815,131 @@ PS.keyUp = function( key, shift, ctrl, options ) {
 	// Uncomment the following line to inspect parameters
 	//PS.debug( "PS.keyUp(): key = " + key + ", shift = " + shift + ", ctrl = " + ctrl + "\n" );
 	
-	if (!MAP.GAME_OVER) {
 	switch(key) {
 		case 1005:
+			if (MAP.firstRound) {
+				PS.statusText("Follow the golden light to exit");
+				MAP.firstRound = false;
+				MAP.secondRound = true;
+			}
+			else if (MAP.thirdRound) {
+				PS.statusText("Press R to restart current level");
+				MAP.counter += 1;
+				if (MAP.counter == 2) {
+					MAP.thirdRound = false;
+					MAP.fourthRound = true;
+					MAP.counter = 0;
+				}
+			}
+			else if (MAP.fourthRound) {
+				PS.statusText("Place block on purple pressure plate!");
+				MAP.counter += 1;
+				if (MAP.counter == 5) {
+					MAP.fourthRound = false;
+					MAP.fifthRound = true;
+				}
+			}
+			else if (MAP.fifthRound) {
+				PS.statusText("Don't step on the bombs!");
+				MAP.fifthRound = false;
+				MAP.sixthRound = true;
+			}
 			PLAYER.moveHorizontally(1);
 			break;
 		case 1006:
+			if (MAP.firstRound) {
+				PS.statusText("Follow the golden light to exit");
+				MAP.firstRound = false;
+				MAP.secondRound = true;
+			}
+			else if (MAP.thirdRound) {
+				PS.statusText("Press R to restart current level");
+				MAP.counter += 1;
+				if (MAP.counter == 2) {
+					MAP.thirdRound = false;
+					MAP.fourthRound = true;
+					MAP.counter = 0;
+				}
+			}
+			else if (MAP.fourthRound) {
+				PS.statusText("Place block on purple pressure plate!");
+				MAP.counter += 1;
+				if (MAP.counter == 5) {
+					MAP.fourthRound = false;
+					MAP.fifthRound = true;
+				}
+			}
+			else if (MAP.fifthRound) {
+				PS.statusText("Don't step on the bombs!");
+				MAP.fifthRound = false;
+				MAP.sixthRound = true;
+			}
+			
 			PLAYER.moveVertically(1);
 			break;
 		case 1007:
+			if (MAP.firstRound) {
+				PS.statusText("Follow the golden light to exit");
+				MAP.firstRound = false;
+				MAP.secondRound = true;
+			}
+			else if (MAP.thirdRound) {
+				PS.statusText("Press R to restart current level");
+				MAP.counter += 1;
+				if (MAP.counter == 2) {
+					MAP.thirdRound = false;
+					MAP.fourthRound = true;
+					MAP.counter = 0;
+				}
+			}
+			else if (MAP.fourthRound) {
+				PS.statusText("Place block on purple pressure plate!");
+				MAP.counter += 1;
+				if (MAP.counter == 5) {
+					MAP.fourthRound = false;
+					MAP.fifthRound = true;
+				}
+			}
+			else if (MAP.fifthRound) {
+				PS.statusText("Don't step on the bombs!");
+				MAP.fifthRound = false;
+				MAP.sixthRound = true;
+			}
 			PLAYER.moveHorizontally(2);
 			break;
 		case 1008:
+			if (MAP.firstRound) {
+				PS.statusText("Follow the golden light to exit");
+				MAP.firstRound = false;
+				MAP.secondRound = true;
+			}
+			else if (MAP.thirdRound) {
+				PS.statusText("Press R to restart current level");
+				MAP.counter += 1;
+				if (MAP.counter == 2) {
+					MAP.thirdRound = false;
+					MAP.fourthRound = true;
+					MAP.counter = 0;
+				}
+			}
+			else if (MAP.fourthRound) {
+				PS.statusText("Place block on purple pressure plate!");
+				MAP.counter += 1;
+				if (MAP.counter == 5) {
+					MAP.fourthRound = false;
+					MAP.fifthRound = true;
+				}
+			}
+			else if (MAP.fifthRound) {
+				PS.statusText("Don't step on the bombs!");
+				MAP.fifthRound = false;
+				MAP.sixthRound = true;
+			}
 			PLAYER.moveVertically(2);
 			break;
 		case 114:
 			MAP.buildFromFile(MAP.currentMap);
+			PS.statusText("Get to the Exit!");
 			break;
 		case 49:
 			MAP.buildFromFile(1);
@@ -848,7 +972,7 @@ PS.keyUp = function( key, shift, ctrl, options ) {
 		default:
 			break;
 	}
-	}
+	
 
 	// Add code here for when a key is released
 };
