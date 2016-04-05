@@ -370,6 +370,9 @@ var PLAYER = {
 				PS.color(PLAYER.X_POS, otherY, 0x738F9B);
 				PS.radius(PLAYER.X_POS, otherY, 25);
 				PLAYER.Y_POS = newY;
+				MAP.onTop = true;
+				MAP.pressedPlates -= 1;
+				MAP.checkGates();
 			}
 			else if (secondResult.r == 64 && secondResult.g == 164 && secondResult.b == 223) {
 				PS.color(PLAYER.X_POS, newY, 0xE6A644);
@@ -378,6 +381,9 @@ var PLAYER = {
 				PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 0);
 				PS.color(PLAYER.X_POS, otherY, 0x784800);
 				PLAYER.Y_POS = newY;
+				MAP.onTop = true;
+				MAP.pressedPlates -= 1;
+				MAP.checkGates();
 			}
 			else if (secondResult.r == 125 && secondResult.g == 38 && secondResult.b == 205) {
 				PS.color(PLAYER.X_POS, newY, 0xE6A644);
@@ -389,6 +395,9 @@ var PLAYER = {
 				PLAYER.Y_POS = newY;
 				MAP.pressedPlates += 1;
 				MAP.checkGates();
+				MAP.onTop = true;
+				MAP.pressedPlates -= 1;
+				MAP.checkGates();
 			}
 			else if (secondResult.r == 255 && secondResult.g == 0 && secondResult.b == 0) {
 				PS.color(PLAYER.X_POS, newY, 0xE6A644);
@@ -397,10 +406,10 @@ var PLAYER = {
 				PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 0);
 				PS.color(PLAYER.X_POS, otherY, PS.COLOR_WHITE);
 				PLAYER.Y_POS = newY;
+				MAP.onTop = true;
+				MAP.pressedPlates -= 1;
+				MAP.checkGates();
 			}
-			MAP.onTop = true;
-			MAP.pressedPlates -= 1;
-			MAP.checkGates();
 		}
 		
 	},
@@ -564,86 +573,54 @@ var PLAYER = {
 			}
 			var secondResult = PS.unmakeRGB(PS.color(otherX, PLAYER.Y_POS), {});
 			if (secondResult.r == 255 && secondResult.g == 255 && secondResult.b == 255) {
-				if (MAP.onTop) {
-					PS.color(newX, PLAYER.Y_POS, 0xE6A644);
-					PS.radius(newX, PLAYER.Y_POS, 50);
-					PS.color(PLAYER.X_POS, PLAYER.Y_POS, 0x7D26CD);
-					PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 50);
-					PS.color(otherX, PLAYER.Y_POS, 0x738F9B);
-					PS.radius(otherX, PLAYER.Y_POS, 25);
-				}
-				else {
 					PS.color(newX, PLAYER.Y_POS, 0xE6A644);
 					PS.radius(newX, PLAYER.Y_POS, 50);
 					PS.color(PLAYER.X_POS, PLAYER.Y_POS, PS.COLOR_WHITE);
 					PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 0);
 					PS.color(otherX, PLAYER.Y_POS, 0x738F9B);
 					PS.radius(otherX, PLAYER.Y_POS, 25);
-				}
-				PLAYER.X_POS = newX;
-				MAP.onTop = false;
+					MAP.onTop = true;
+					PLAYER.X_POS = newX;
+					MAP.pressedPlates -= 1;
+					MAP.checkGates();
 			}
 			else if (secondResult.r == 64 && secondResult.g == 164 && secondResult.b == 223) {
-				if (MAP.onTop) {
-					PS.color(newX, PLAYER.Y_POS, 0xE6A644);
-					PS.radius(newX, PLAYER.Y_POS, 50);
-					PS.color(PLAYER.X_POS, PLAYER.Y_POS, 0x7D26CD);
-					PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 50);
-					PS.color(otherX, PLAYER.Y_POS, 0x784800);
-				}
-				else {
 					PS.color(newX, PLAYER.Y_POS, 0xE6A644);
 					PS.radius(newX, PLAYER.Y_POS, 50);
 					PS.color(PLAYER.X_POS, PLAYER.Y_POS, PS.COLOR_WHITE);
 					PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 0);
 					PS.color(otherX, PLAYER.Y_POS, 0x784800);
-				}
-				PLAYER.X_POS = newX;
-				MAP.onTop = false;
+					PLAYER.X_POS = newX;
+					MAP.onTop = true;
+					MAP.pressedPlates -= 1;
+					MAP.checkGates();
 			}
 			else if (secondResult.r == 125 && secondResult.g == 38 && secondResult.b == 205) {
-				if (MAP.onTop) {
-					PS.color(newX, PLAYER.Y_POS, 0xE6A644);
-					PS.radius(newX, PLAYER.Y_POS, 50);
-					PS.color(PLAYER.X_POS, PLAYER.Y_POS, 0x7D26CD);
-					PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 50);
-					PS.color(otherX, PLAYER.Y_POS, 0x785AB4);
-					PS.radius(otherX, PLAYER.Y_POS, 25);
-				}
-				else {
 					PS.color(newX, PLAYER.Y_POS, 0xE6A644);
 					PS.radius(newX, PLAYER.Y_POS, 50);
 					PS.color(PLAYER.X_POS, PLAYER.Y_POS, PS.COLOR_WHITE);
 					PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 0);
 					PS.color(otherX, PLAYER.Y_POS, 0x785AB4);
 					PS.radius(otherX, PLAYER.Y_POS, 25);
-				}
-				PLAYER.X_POS = newX;
-				MAP.pressedPlates += 1;
-				MAP.checkGates();
-				MAP.onTop = false;
+					PLAYER.X_POS = newX;
+					MAP.pressedPlates += 1;
+					MAP.checkGates();
+					MAP.onTop = true;
+					MAP.pressedPlates -= 1;
+					MAP.checkGates();
 			}
 			else if (secondResult.r == 255 && secondResult.g == 0 && secondResult.b == 0) {
-				if (MAP.onTop) {
 					PS.color(newX, PLAYER.Y_POS, 0xE6A644);
 					PS.radius(newX, PLAYER.Y_POS, 50);
 					PS.color(PLAYER.X_POS, PLAYER.Y_POS, 0x7D26CD);
 					PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 50);
 					PS.color(otherX, PLAYER.Y_POS, PS.COLOR_WHITE);
+					PLAYER.X_POS = newX;
+					MAP.onTop = true;
+					MAP.pressedPlates -= 1;
+					MAP.checkGates();
 				}
-				else {
-					PS.color(newX, PLAYER.Y_POS, 0xE6A644);
-					PS.radius(newX, PLAYER.Y_POS, 50);
-					PS.color(PLAYER.X_POS, PLAYER.Y_POS, PS.COLOR_WHITE);
-					PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 0);
-					PS.color(otherX, PLAYER.Y_POS, PS.COLOR_WHITE);
-				}
-				PLAYER.X_POS = newX;
-				MAP.onTop = false;
-			}
-			MAP.onTop = true;
-			MAP.pressedPlates -= 1;
-			MAP.checkGates();
+				
 		}
 	},
 	
