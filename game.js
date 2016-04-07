@@ -883,24 +883,6 @@ PS.keyDown = function( key, shift, ctrl, options ) {
 	//	PS.debug( "DOWN: key = " + key + ", shift = " + shift + "\n" );
 
 	// Add code here for when a key is pressed
-};
-
-// PS.keyUp ( key, shift, ctrl, options )
-// Called when a key on the keyboard is released
-// It doesn't have to do anything
-// [key] = ASCII code of the pressed key, or one of the following constants:
-// Arrow keys = PS.ARROW_UP, PS.ARROW_DOWN, PS.ARROW_LEFT, PS.ARROW_RIGHT
-// Function keys = PS.F1 through PS.F12
-// [shift] = true if shift key is held down, false otherwise
-// [ctrl] = true if control key is held down, false otherwise
-// [options] = an object with optional parameters; see documentation for details
-
-PS.keyUp = function( key, shift, ctrl, options ) {
-	"use strict";
-
-	// Uncomment the following line to inspect parameters
-	//PS.debug( "PS.keyUp(): key = " + key + ", shift = " + shift + ", ctrl = " + ctrl + "\n" );
-	
 	switch(key) {
 		case 1005:
 			PLAYER.moveHorizontally(1);
@@ -963,7 +945,88 @@ PS.keyUp = function( key, shift, ctrl, options ) {
 		default:
 			break;
 	}
-	
+
+};
+
+// PS.keyUp ( key, shift, ctrl, options )
+// Called when a key on the keyboard is released
+// It doesn't have to do anything
+// [key] = ASCII code of the pressed key, or one of the following constants:
+// Arrow keys = PS.ARROW_UP, PS.ARROW_DOWN, PS.ARROW_LEFT, PS.ARROW_RIGHT
+// Function keys = PS.F1 through PS.F12
+// [shift] = true if shift key is held down, false otherwise
+// [ctrl] = true if control key is held down, false otherwise
+// [options] = an object with optional parameters; see documentation for details
+
+PS.keyUp = function( key, shift, ctrl, options ) {
+	"use strict";
+
+	// Uncomment the following line to inspect parameters
+	//PS.debug( "PS.keyUp(): key = " + key + ", shift = " + shift + ", ctrl = " + ctrl + "\n" );
+	/*
+	switch(key) {
+		case 1005:
+			PLAYER.moveHorizontally(1);
+			break;
+		case 1006:
+			PLAYER.moveVertically(1);
+			break;
+		case 1007:
+			PLAYER.moveHorizontally(2);
+			break;
+		case 1008:
+			PLAYER.moveVertically(2);
+			break;
+		case 114:
+			MAP.buildFromFile(MAP.currentMap);
+			break;		
+		case 49:
+			MAP.buildFromFile(1);
+			MAP.currentMap = 1;
+			break;
+		case 50:
+			MAP.buildFromFile(2);
+			MAP.currentMap = 2;
+			break;
+		case 51:
+			MAP.buildFromFile(3);
+			MAP.currentMap = 3;
+			break;
+		case 52:
+			MAP.buildFromFile(4);
+			MAP.currentMap = 4;
+			break;
+		case 53:
+			MAP.buildFromFile(5);
+			MAP.currentMap = 5;
+			break;
+		case 54:
+			MAP.buildFromFile(6);
+			MAP.currentMap = 6;
+			break;
+		case 55:
+			MAP.buildFromFile(7);
+			MAP.currentMap = 7;
+			break;
+		case 56:
+            		MAP.buildFromFile(8);
+            		MAP.currentMap = 8;
+            		break;
+        	case 57:
+            		MAP.buildFromFile(9);
+            		MAP.currentMap = 9;
+            		break;
+       	 	case 48:
+            		MAP.buildFromFile(10);
+            		MAP.currentMap = 10;
+            		break;
+           	case	189:
+           		MAP.buildFromFile(11);
+           		MAP.currentMap = 11;
+		default:
+			break;
+	}
+	*/
 
 	// Add code here for when a key is released
 };
