@@ -48,9 +48,9 @@ var MAP = {
 	
 	MAP6:[["#","#","#","#","#","#","#","#","#","#","#","#","#","#","#","#","#","#","#","#","#","#","#"], ["#","_","_","_","_","_","_","_","B","o","#","o","B","_","_","_","_","_","_","_","_","_","#"], ["#","_","#","#","#","#","#","#","#","#","#","#","#","#","#","#","#","_","#","_","#","_","#"], ["#","_","_","_","_","_","_","_","#","_","_","_","_","_","_","_","#","_","#","_","#","_","#"], ["#","#","#","#","#","_","#","#","#","_","#","#","#","_","#","#","#","#","#","_","#","_","#"], ["#","_","_","_","_","_","#","_","#","_","_","_","#","_","_","_","_","_","_","_","#","_","#"], ["#","_","#","#","#","_","#","_","#","#","#","#","#","#","#","#","#","#","#","_","#","_","#"], ["#","_","_","_","#","_","#","_","_","_","_","_","_","_","_","_","_","_","_","_","#","_","#"], ["#","#","#","_","#","_","#","#","#","_","#","_","#","#","#","#","#","#","#","_","#","_","#"], ["#","_","_","_","#","_","_","_","_","_","#","S","#","_","_","_","_","_","#","_","#","_","#"], ["#","_","#","#","#","#","#","#","#","#","#","#","#","_","#","#","#","_","#","#","#","_","#"], ["#","_","#","_","_","_","#","_","_","_","#","X","#","_","_","_","#","_","_","_","_","_","#"], ["#","_","#","_","#","_","#","_","#","#","#","|","#","#","#","_","#","#","#","_","#","#","#"], ["#","_","_","_","#","_","_","_","_","_","_","_","#","_","_","_","_","_","#","_","#","o","#"], ["#","_","#","#","#","#","#","#","#","#","#","#","#","_","#","_","#","_","#","_","#","B","#"], ["#","_","#","_","_","_","_","#","o","_","_","_","#","_","#","_","#","_","#","_","#","_","#"], ["#","_","#","_","#","#","#","#","#","B","#","_","#","#","#","_","#","#","#","_","#","_","#"], ["#","_","#","_","#","_","_","_","#","_","#","_","_","_","#","_","_","_","#","_","#","_","#"], ["#","_","#","_","#","_","#","_","#","_","#","#","#","_","#","_","#","_","#","#","#","_","#"], ["#","_","_","_","_","_","#","_","_","_","_","_","#","_","_","_","#","_","_","_","_","_","#"], ["#","#","#","#","#","#","#","#","#","#","#","#","#","#","#","#","#","#","#","#","#","#","#"]],
 	
-	MAP7: [["_","_","_","_","_","_","_","_","_","_","#","#","#","#","#","#"],["#","#","#","#","#","#","#","#","#","#","#","o","_","_","o","#"],["#","_","_","_","_","_","_","~","~","_","_","B","_","B","_","#"],["#","S","_","B","B","#","#","b","b","#","#","o","B","_","_","#"],["#","_","_","_","_","_","_","~","~","_","_","B","_","B","_","#"],["#","|","#","#","#","#","#","#","#","#","#","o","_","_","o","#"],["#","_","_","_","_","_","_","_","_","X","#","#","#","#","#","#"],["#","#","#","#","#","#","#","#","#","#","#","_","_","_","_","_"]],
+	MAP8: [["_","_","_","_","_","_","_","_","_","_","#","#","#","#","#","#"],["#","#","#","#","#","#","#","#","#","#","#","o","_","_","o","#"],["#","_","_","_","_","_","_","~","~","_","_","B","_","B","_","#"],["#","S","_","B","B","#","#","b","b","#","#","o","B","_","_","#"],["#","_","_","_","_","_","_","~","~","_","_","B","_","B","_","#"],["#","|","#","#","#","#","#","#","#","#","#","o","_","_","o","#"],["#","_","_","_","_","_","_","_","_","X","#","#","#","#","#","#"],["#","#","#","#","#","#","#","#","#","#","#","_","_","_","_","_"]],
 	
-	MAP8: [["#","#","#","#","#","#","#","#","#","#","#","#","#"],["#","S","B","_","_","_","_","_","_","_","_","_","#"],["#","#","#","#","#","#","#","#","#","#","_","_","#"],["#","o","_","_","_","_","_","_","_","_","B","_","#"],["#","#","B","#","#","#","#","#","#","#","|","#","#"],["#","~","D","_","_","_","_","_","b","_","_","_","#"],["#","_","_","_","_","_","_","~","#","B","B","_","#"],["#","#","#","#","#","#","#","X","#","_","_","_","#"],["#","#","#","#","#","#","#","#","#","#","#","#","#"]],
+	MAP7: [["#","#","#","#","#","#","#","#","#","#","#","#","#"],["#","S","B","_","_","_","_","_","_","_","_","_","#"],["#","#","#","#","#","#","#","#","#","#","_","_","#"],["#","o","_","_","_","_","_","_","_","_","B","_","#"],["#","#","B","#","#","#","#","#","#","#","|","#","#"],["#","~","D","_","_","_","_","_","b","_","_","_","#"],["#","_","_","_","_","_","_","~","#","B","B","_","#"],["#","#","#","#","#","#","#","X","#","_","_","_","#"],["#","#","#","#","#","#","#","#","#","#","#","#","#"]],
 	
 	MAP9: [["#","#","#","#","#","#","#"],["#","_","_","_","_","#","#"],["#","_","_","B","B","b","#"],["#","_","#","B","_","b","#"],["#","_","B","_","#","b","#"],["#","_","_","B","_","b","#"],["#","_","#","B","#","b","#"],["#","S","_","_","#","b","#"],["#","#","#","#","#","X","#"]],
 	
@@ -74,6 +74,8 @@ var MAP = {
 	myTimer: 0,
 	anim: 1,
 	numOfPlates: 0,
+	platesX: [],
+	platesY: [], 
 	pressedPlates: 0,
 	onTop: false,
 	mid: 15,
@@ -99,10 +101,10 @@ var MAP = {
 							PS.color(X, i, 0x8C3313);
 							break;
 						case "_":
-							PS.color(X, i, PS.COLOR_WHITE);
+							PS.color(X, i, 0xF4A460);
 							break;
 						case "S":
-							PS.color(X, i, 0xE6A644);
+							PS.color(X, i, 0x8A6328);
 							PS.radius(X, i, 50);
 							PLAYER.X_POS = X;
 							PLAYER.Y_POS = i;
@@ -125,6 +127,8 @@ var MAP = {
 							break;
 						case "|":
 							PS.color(X, i, 0x7D26CE);
+							MAP.platesX.push(X);
+							MAP.platesY.push(i);
 							break;
 						case "b":
 							PS.color(X, i, 0xFF0000);
@@ -146,15 +150,17 @@ var MAP = {
 	},
 	
 	buildFromFile : function(mapNumber) {
-		PS.color(PS.ALL, PS.ALL, PS.COLOR_WHITE);
+		PS.color(PS.ALL, PS.ALL, 0xF4A460);
 		PS.border(PS.ALL, PS.ALL, 0);
 		PS.radius(PS.ALL, PS.ALL, 0);
 		MAP.numOfPlates = 0;
 		MAP.pressedPlates = 0;
+		MAP.platesX = [];
+		MAP.platesY = [];
 		
 		switch(mapNumber) {
 			case 1:
-                PS.statusText("Use Arrow Keys to Move");
+                		PS.statusText("Use Arrow Keys to Move");
 				MAP.WIDTH = MAP.MAP1[0].length;
 				MAP.HEIGHT = MAP.MAP1.length;
 				break;
@@ -164,7 +170,7 @@ var MAP = {
 				MAP.HEIGHT = MAP.MAP2.length;
 				break;
 			case 3:
-				PS.statusText("Don't step on the bombs! Use the blocks!");
+				PS.statusText("Don't step on the bombs! Use the block!");
 				MAP.WIDTH = MAP.MAP3[0].length;
 				MAP.HEIGHT = MAP.MAP3.length;
 				break;
@@ -198,6 +204,10 @@ var MAP = {
 				MAP.WIDTH = MAP.MAP10[0].length;
 				MAP.HEIGHT = MAP.MAP10.length;
 				break;
+			case 11:
+				MAP.WIDTH = MAP.MAP11[0].length;
+				MAP.HEIGHT = MAP.MAP11.length;
+				break;
 			default:
 				break;
 		}
@@ -212,13 +222,21 @@ var MAP = {
 				for (var j=0; j<32;j++) {
 					result = PS.unmakeRGB(PS.color(i, j), {});
 					if (result.r == 125 && result.g == 38 && result.b == 206) {
-						PS.color(i, j, PS.COLOR_WHITE);
+						PS.color(i, j, 0xF4A460);
 						PS.border(i, j, 1);
 						PS.borderColor(i, j, 125, 38, 206);
 						PS.audioPlay("fx_swoosh");
 					}
 				}
 			}
+		}
+		else {
+			var len = MAP.platesX.length;
+			for (var i=0;i<len;i++) {
+				PS.color(MAP.platesX[i], MAP.platesY[i], 0x7D26CE);
+				PS.border(MAP.platesX[i], MAP.platesY[i], 0);
+			}
+			
 		}
 	},
 	
@@ -238,47 +256,48 @@ var PLAYER = {
 			newY = PLAYER.Y_POS+1;
 		}
 		var result = PS.unmakeRGB(PS.color(PLAYER.X_POS, newY), {});
-		if (result.r == 255 && result.g == 255 && result.b == 255 || result.r == 120 && result.g == 102 && result.b == 0) {
+		if (result.r == 244 && result.g == 164 && result.b == 96 || result.r == 120 && result.g == 102 && result.b == 0) {
 			if (result.r == 120 && result.g == 102 && result.b == 0) {
 				PS.audioPlay("perc_shaker");
 			}
 			if (MAP.onTop) {
-				PS.color(PLAYER.X_POS, newY, 0xE6A644);
+				PS.color(PLAYER.X_POS, newY, 0x8A6328);
 				PS.radius(PLAYER.X_POS, newY, 50);
 				PS.color(PLAYER.X_POS, PLAYER.Y_POS, 0x7D26CD);
 				PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 50);
 				MAP.onTop = false;
 			}
 			else {
-				PS.color(PLAYER.X_POS, newY, 0xE6A644);
+				PS.color(PLAYER.X_POS, newY, 0x8A6328);
 				PS.radius(PLAYER.X_POS, newY, 50);
-				PS.color(PLAYER.X_POS, PLAYER.Y_POS, PS.COLOR_WHITE);
+				PS.color(PLAYER.X_POS, PLAYER.Y_POS, 0xF4A460);
 				PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 0);
 			}
 			PLAYER.Y_POS = newY;
 		}
 		else if (result.r == 125 && result.g == 38 && result.b == 205) {
 			MAP.onTop = true;
-			PS.color(PLAYER.X_POS, newY, 0xE6A644);
+			PS.color(PLAYER.X_POS, newY, 0x8A6328);
 			PS.radius(PLAYER.X_POS, newY, 50);
-			PS.color(PLAYER.X_POS, PLAYER.Y_POS, PS.COLOR_WHITE);
+			PS.color(PLAYER.X_POS, PLAYER.Y_POS, 0xF4A460);
 			PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 0);
 			PLAYER.Y_POS = newY;
 		}
 		else if (result.r == 255 && result.g == 215 && result.b == 0) {
-			if (MAP.currentMap < 7) {
+			if (MAP.currentMap < 11) {
 				PS.audioPlay("fx_coin7");
 				MAP.currentMap += 1;
-				PS.color(PLAYER.X_POS, newY, 0xE6A644);
+				PS.color(PLAYER.X_POS, newY, 0x8A6328);
 				PS.radius(PLAYER.X_POS, newY, 50);
-				PS.color(PLAYER.X_POS, PLAYER.Y_POS, PS.COLOR_WHITE);
+				PS.color(PLAYER.X_POS, PLAYER.Y_POS, 0xF4A460);
 				PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 0);
 				//PS.statusText("YOU WON!");
 				MAP.buildFromFile(MAP.currentMap);
 			}
 			else {
 				PS.audioPlay("fx_tada");
-				PS.color(PS.ALL, PS.ALL, PS.COLOR_WHITE);
+				PS.color(PS.ALL, PS.ALL, 0xF4A460);
+				PS.border(PS.ALL, PS.ALL, 0);
 				PS.statusText("YOU ESCAPED! Press R to Play Again!");
 				MAP.currentMap = 1;
 			}
@@ -292,9 +311,9 @@ var PLAYER = {
 				otherY = newY+1;
 			}
 			var secondResult = PS.unmakeRGB(PS.color(PLAYER.X_POS, otherY), {});
-			if (secondResult.r == 255 && secondResult.g == 255 && secondResult.b == 255) {
+			if (secondResult.r == 244 && secondResult.g == 164 && secondResult.b == 96) {
 				if (MAP.onTop) {
-					PS.color(PLAYER.X_POS, newY, 0xE6A644);
+					PS.color(PLAYER.X_POS, newY, 0x8A6328);
 					PS.radius(PLAYER.X_POS, newY, 50);
 					PS.color(PLAYER.X_POS, PLAYER.Y_POS, 0x7D26CD);
 					PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 50);
@@ -302,9 +321,9 @@ var PLAYER = {
 					PS.radius(PLAYER.X_POS, otherY, 25);
 				}
 				else {
-					PS.color(PLAYER.X_POS, newY, 0xE6A644);
+					PS.color(PLAYER.X_POS, newY, 0x8A6328);
 					PS.radius(PLAYER.X_POS, newY, 50);
-					PS.color(PLAYER.X_POS, PLAYER.Y_POS, PS.COLOR_WHITE);
+					PS.color(PLAYER.X_POS, PLAYER.Y_POS, 0xF4A460);
 					PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 0);
 					PS.color(PLAYER.X_POS, otherY, 0x738F9B);
 					PS.radius(PLAYER.X_POS, otherY, 25);
@@ -314,16 +333,16 @@ var PLAYER = {
 			}
 			else if (secondResult.r == 64 && secondResult.g == 164 && secondResult.b == 223) {
 				if (MAP.onTOP) {
-					PS.color(PLAYER.X_POS, newY, 0xE6A644);
+					PS.color(PLAYER.X_POS, newY, 0x8A6328);
 					PS.radius(PLAYER.X_POS, newY, 50);
 					PS.color(PLAYER.X_POS, PLAYER.Y_POS, 0x7D26CD);
 					PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 50);
 					PS.color(PLAYER.X_POS, otherY, 0x786600);
 				}
 				else {
-					PS.color(PLAYER.X_POS, newY, 0xE6A644);
+					PS.color(PLAYER.X_POS, newY, 0x8A6328);
 					PS.radius(PLAYER.X_POS, newY, 50);
-					PS.color(PLAYER.X_POS, PLAYER.Y_POS, PS.COLOR_WHITE);
+					PS.color(PLAYER.X_POS, PLAYER.Y_POS, 0xF4A460);
 					PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 0);
 					PS.color(PLAYER.X_POS, otherY, 0x786600);
 				}
@@ -334,7 +353,7 @@ var PLAYER = {
 			}
 			else if (secondResult.r == 125 && secondResult.g == 38 && secondResult.b == 205) {
 				if (MAP.onTop) {
-					PS.color(PLAYER.X_POS, newY, 0xE6A644);
+					PS.color(PLAYER.X_POS, newY, 0x8A6328);
 					PS.radius(PLAYER.X_POS, newY, 50);
 					PS.color(PLAYER.X_POS, PLAYER.Y_POS, 0x7D26CD);
 					PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 50);
@@ -342,9 +361,9 @@ var PLAYER = {
 					PS.radius(PLAYER.X_POS, otherY, 25);
 				}
 				else {
-					PS.color(PLAYER.X_POS, newY, 0xE6A644);
+					PS.color(PLAYER.X_POS, newY, 0x8A6328);
 					PS.radius(PLAYER.X_POS, newY, 50);
-					PS.color(PLAYER.X_POS, PLAYER.Y_POS, PS.COLOR_WHITE);
+					PS.color(PLAYER.X_POS, PLAYER.Y_POS, 0xF4A460);
 					PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 0);
 					PS.color(PLAYER.X_POS, otherY, 0x785AB4);
 					PS.radius(PLAYER.X_POS, otherY, 25);
@@ -356,18 +375,18 @@ var PLAYER = {
 			}
 			else if (secondResult.r == 255 && secondResult.g == 0 && secondResult.b == 0) {
 				if (MAP.onTop) {
-					PS.color(PLAYER.X_POS, newY, 0xE6A644);
+					PS.color(PLAYER.X_POS, newY, 0x8A6328);
 					PS.radius(PLAYER.X_POS, newY, 50);
-					PS.color(PLAYER.X_POS, PLAYER.Y_POS, PS.COLOR_WHITE);
+					PS.color(PLAYER.X_POS, PLAYER.Y_POS, 0xF4A460);
 					PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 0);
-					PS.color(PLAYER.X_POS, otherY, PS.COLOR_WHITE);
+					PS.color(PLAYER.X_POS, otherY, 0xF4A460);
 				}
 				else {
-					PS.color(PLAYER.X_POS, newY, 0xE6A644);
+					PS.color(PLAYER.X_POS, newY, 0x8A6328);
 					PS.radius(PLAYER.X_POS, newY, 50);
-					PS.color(PLAYER.X_POS, PLAYER.Y_POS, PS.COLOR_WHITE);
+					PS.color(PLAYER.X_POS, PLAYER.Y_POS, 0xF4A460);
 					PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 0);
-					PS.color(PLAYER.X_POS, otherY, PS.COLOR_WHITE);
+					PS.color(PLAYER.X_POS, otherY, 0xF4A460);
 				}
 				PS.audioPlay("fx_bang");
 				PLAYER.Y_POS = newY;
@@ -376,12 +395,12 @@ var PLAYER = {
 
 		}
 		else if (result.r == 255 && result.g == 0 && result.b == 0) {
-			PS.color(PLAYER.X_POS, newY, 0xE6A644);
+			PS.color(PLAYER.X_POS, newY, 0x8A6328);
 			PLAYER.die(1, PLAYER.X_POS, newY);
 			MAP.buildFromFile(MAP.currentMap);
 		}
 		else if (result.r == 64 && result.g == 164 && result.b == 223) {
-			PS.color(PLAYER.X_POS, newY, 0xE6A644);
+			PS.color(PLAYER.X_POS, newY, 0x8A6328);
 			PLAYER.die(2, PLAYER.X_POS, newY);
 			MAP.buildFromFile(MAP.currentMap);
 		}
@@ -394,10 +413,10 @@ var PLAYER = {
 				otherY = newY+1;
 			}
 			var secondResult = PS.unmakeRGB(PS.color(PLAYER.X_POS, otherY), {});
-			if (secondResult.r == 255 && secondResult.g == 255 && secondResult.b == 255) {
-				PS.color(PLAYER.X_POS, newY, 0xE6A644);
+			if (secondResult.r == 244 && secondResult.g == 164 && secondResult.b == 96) {
+				PS.color(PLAYER.X_POS, newY, 0x8A6328);
 				PS.radius(PLAYER.X_POS, newY, 50);
-				PS.color(PLAYER.X_POS, PLAYER.Y_POS, PS.COLOR_WHITE);
+				PS.color(PLAYER.X_POS, PLAYER.Y_POS, 0xF4A460);
 				PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 0);
 				PS.color(PLAYER.X_POS, otherY, 0x738F9B);
 				PS.radius(PLAYER.X_POS, otherY, 25);
@@ -407,9 +426,9 @@ var PLAYER = {
 				MAP.checkGates();
 			}
 			else if (secondResult.r == 64 && secondResult.g == 164 && secondResult.b == 223) {
-				PS.color(PLAYER.X_POS, newY, 0xE6A644);
+				PS.color(PLAYER.X_POS, newY, 0x8A6328);
 				PS.radius(PLAYER.X_POS, newY, 50);
-				PS.color(PLAYER.X_POS, PLAYER.Y_POS, PS.COLOR_WHITE);
+				PS.color(PLAYER.X_POS, PLAYER.Y_POS, 0xF4A460);
 				PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 0);
 				PS.color(PLAYER.X_POS, otherY, 0x786600);
 				PLAYER.Y_POS = newY;
@@ -418,9 +437,9 @@ var PLAYER = {
 				MAP.checkGates();
 			}
 			else if (secondResult.r == 125 && secondResult.g == 38 && secondResult.b == 205) {
-				PS.color(PLAYER.X_POS, newY, 0xE6A644);
+				PS.color(PLAYER.X_POS, newY, 0x8A6328);
 				PS.radius(PLAYER.X_POS, newY, 50);
-				PS.color(PLAYER.X_POS, PLAYER.Y_POS, PS.COLOR_WHITE);
+				PS.color(PLAYER.X_POS, PLAYER.Y_POS, 0xF4A460);
 				PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 0);
 				PS.color(PLAYER.X_POS, otherY, 0x785AB4);
 				PS.radius(PLAYER.X_POS, otherY, 25);
@@ -432,11 +451,11 @@ var PLAYER = {
 				MAP.checkGates();
 			}
 			else if (secondResult.r == 255 && secondResult.g == 0 && secondResult.b == 0) {
-				PS.color(PLAYER.X_POS, newY, 0xE6A644);
+				PS.color(PLAYER.X_POS, newY, 0x8A6328);
 				PS.radius(PLAYER.X_POS, newY, 50);
-				PS.color(PLAYER.X_POS, PLAYER.Y_POS, PS.COLOR_WHITE);
+				PS.color(PLAYER.X_POS, PLAYER.Y_POS, 0xF4A460);
 				PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 0);
-				PS.color(PLAYER.X_POS, otherY, PS.COLOR_WHITE);
+				PS.color(PLAYER.X_POS, otherY, 0xF4A460);
 				PLAYER.Y_POS = newY;
 				MAP.onTop = true;
 				MAP.pressedPlates -= 1;
@@ -455,47 +474,48 @@ var PLAYER = {
 			newX = PLAYER.X_POS+1;
 		}
 		var result = PS.unmakeRGB(PS.color(newX, PLAYER.Y_POS), {});
-		if (result.r == 255 && result.g == 255 && result.b == 255 || result.r == 120 && result.g == 102 && result.b == 0) {
+		if (result.r == 244 && result.g == 164 && result.b == 96 || result.r == 120 && result.g == 102 && result.b == 0) {
 			if (result.r == 120 && result.g == 102 && result.b == 0) {
 				PS.audioPlay("perc_shaker");
 			}
 			if (MAP.onTop) {
-				PS.color(newX, PLAYER.Y_POS, 0xE6A644);
+				PS.color(newX, PLAYER.Y_POS, 0x8A6328);
 				PS.radius(newX, PLAYER.Y_POS, 50);
 				PS.color(PLAYER.X_POS, PLAYER.Y_POS, 0x7D26CD);
 				PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 50);
 				MAP.onTop = false;
 			}
 			else {
-				PS.color(newX, PLAYER.Y_POS, 0xE6A644);
+				PS.color(newX, PLAYER.Y_POS, 0x8A6328);
 				PS.radius(newX, PLAYER.Y_POS, 50);
-				PS.color(PLAYER.X_POS, PLAYER.Y_POS, PS.COLOR_WHITE);
+				PS.color(PLAYER.X_POS, PLAYER.Y_POS, 0xF4A460);
 				PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 0);
 			}
 			PLAYER.X_POS = newX;
 		}
 		else if (result.r == 125 && result.g == 38 && result.b == 205) {
 			MAP.onTop = true;
-			PS.color(newX, PLAYER.Y_POS, 0xE6A644);
+			PS.color(newX, PLAYER.Y_POS, 0x8A6328);
 			PS.radius(newX, PLAYER.Y_POS, 50);
-			PS.color(PLAYER.X_POS, PLAYER.Y_POS, PS.COLOR_WHITE);
+			PS.color(PLAYER.X_POS, PLAYER.Y_POS, 0xF4A460);
 			PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 0);
 			PLAYER.X_POS = newX;
 		}
 		else if (result.r == 255 && result.g == 215 && result.b == 0) {
-			if (MAP.currentMap < 7) {
+			if (MAP.currentMap < 11) {
 				PS.audioPlay("fx_coin7");
 				MAP.currentMap += 1;
-				PS.color(newX, PLAYER.Y_POS, 0xE6A644);
+				PS.color(newX, PLAYER.Y_POS, 0x8A6328);
 				PS.radius(newX, PLAYER.Y_POS, 50);
-				PS.color(PLAYER.X_POS, PLAYER.Y_POS, PS.COLOR_WHITE);
+				PS.color(PLAYER.X_POS, PLAYER.Y_POS, 0xF4A460);
 				PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 0);
 				//PS.statusText("YOU WON!");
 				MAP.buildFromFile(MAP.currentMap);
 			}
 			else {
 				PS.audioPlay("fx_tada");
-				PS.color(PS.ALL, PS.ALL, PS.COLOR_WHITE);
+				PS.color(PS.ALL, PS.ALL, 0xF4A460);
+				PS.border(PS.ALL, PS.ALL, 0);
 				PS.statusText("YOU ESCAPED! Press R to Play Again!");
 				MAP.currentMap = 1;
 			}
@@ -510,9 +530,9 @@ var PLAYER = {
 				otherX = newX + 1;
 			}
 			var secondResult = PS.unmakeRGB(PS.color(otherX, PLAYER.Y_POS), {});
-			if (secondResult.r == 255 && secondResult.g == 255 && secondResult.b == 255) {
+			if (secondResult.r == 244 && secondResult.g == 164 && secondResult.b == 96) {
 				if (MAP.onTop) {
-					PS.color(newX, PLAYER.Y_POS, 0xE6A644);
+					PS.color(newX, PLAYER.Y_POS, 0x8A6328);
 					PS.radius(newX, PLAYER.Y_POS, 50);
 					PS.color(PLAYER.X_POS, PLAYER.Y_POS, 0x7D26CD);
 					PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 50);
@@ -520,9 +540,9 @@ var PLAYER = {
 					PS.radius(otherX, PLAYER.Y_POS, 25);
 				}
 				else {
-					PS.color(newX, PLAYER.Y_POS, 0xE6A644);
+					PS.color(newX, PLAYER.Y_POS, 0x8A6328);
 					PS.radius(newX, PLAYER.Y_POS, 50);
-					PS.color(PLAYER.X_POS, PLAYER.Y_POS, PS.COLOR_WHITE);
+					PS.color(PLAYER.X_POS, PLAYER.Y_POS, 0xF4A460);
 					PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 0);
 					PS.color(otherX, PLAYER.Y_POS, 0x738F9B);
 					PS.radius(otherX, PLAYER.Y_POS, 25);
@@ -532,16 +552,16 @@ var PLAYER = {
 			}
 			else if (secondResult.r == 64 && secondResult.g == 164 && secondResult.b == 223) {
 				if (MAP.onTop) {
-					PS.color(newX, PLAYER.Y_POS, 0xE6A644);
+					PS.color(newX, PLAYER.Y_POS, 0x8A6328);
 					PS.radius(newX, PLAYER.Y_POS, 50);
 					PS.color(PLAYER.X_POS, PLAYER.Y_POS, 0x7D26CD);
 					PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 50);
 					PS.color(otherX, PLAYER.Y_POS, 0x786600);
 				}
 				else {
-					PS.color(newX, PLAYER.Y_POS, 0xE6A644);
+					PS.color(newX, PLAYER.Y_POS, 0x8A6328);
 					PS.radius(newX, PLAYER.Y_POS, 50);
-					PS.color(PLAYER.X_POS, PLAYER.Y_POS, PS.COLOR_WHITE);
+					PS.color(PLAYER.X_POS, PLAYER.Y_POS, 0xF4A460);
 					PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 0);
 					PS.color(otherX, PLAYER.Y_POS, 0x786600);
 				}
@@ -551,7 +571,7 @@ var PLAYER = {
 			}
 			else if (secondResult.r == 125 && secondResult.g == 38 && secondResult.b == 205) {
 				if (MAP.onTop) {
-					PS.color(newX, PLAYER.Y_POS, 0xE6A644);
+					PS.color(newX, PLAYER.Y_POS, 0x8A6328);
 					PS.radius(newX, PLAYER.Y_POS, 50);
 					PS.color(PLAYER.X_POS, PLAYER.Y_POS, 0x7D26CD);
 					PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 50);
@@ -559,9 +579,9 @@ var PLAYER = {
 					PS.radius(otherX, PLAYER.Y_POS, 25);
 				}
 				else {
-					PS.color(newX, PLAYER.Y_POS, 0xE6A644);
+					PS.color(newX, PLAYER.Y_POS, 0x8A6328);
 					PS.radius(newX, PLAYER.Y_POS, 50);
-					PS.color(PLAYER.X_POS, PLAYER.Y_POS, PS.COLOR_WHITE);
+					PS.color(PLAYER.X_POS, PLAYER.Y_POS, 0xF4A460);
 					PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 0);
 					PS.color(otherX, PLAYER.Y_POS, 0x785AB4);
 					PS.radius(otherX, PLAYER.Y_POS, 25);
@@ -573,18 +593,18 @@ var PLAYER = {
 			}
 			else if (secondResult.r == 255 && secondResult.g == 0 && secondResult.b == 0) {
 				if (MAP.onTop) {
-					PS.color(newX, PLAYER.Y_POS, 0xE6A644);
+					PS.color(newX, PLAYER.Y_POS, 0x8A6328);
 					PS.radius(newX, PLAYER.Y_POS, 50);
 					PS.color(PLAYER.X_POS, PLAYER.Y_POS, 0x7D26CD);
 					PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 50);
-					PS.color(otherX, PLAYER.Y_POS, PS.COLOR_WHITE);
+					PS.color(otherX, PLAYER.Y_POS, 0xF4A460);
 				}
 				else {
-					PS.color(newX, PLAYER.Y_POS, 0xE6A644);
+					PS.color(newX, PLAYER.Y_POS, 0x8A6328);
 					PS.radius(newX, PLAYER.Y_POS, 50);
-					PS.color(PLAYER.X_POS, PLAYER.Y_POS, PS.COLOR_WHITE);
+					PS.color(PLAYER.X_POS, PLAYER.Y_POS, 0xF4A460);
 					PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 0);
-					PS.color(otherX, PLAYER.Y_POS, PS.COLOR_WHITE);
+					PS.color(otherX, PLAYER.Y_POS, 0xF4A460);
 				}
 				PS.audioPlay("fx_bang");
 				PLAYER.X_POS = newX;
@@ -592,12 +612,12 @@ var PLAYER = {
 			}
 		}
 		else if (result.r == 255 && result.g == 0 && result.b == 0) {
-			PS.color(newX, PLAYER.Y_POS, 0xE6A644);
+			PS.color(newX, PLAYER.Y_POS, 0x8A6328);
 			PLAYER.die(1, newX, PLAYER.Y_POS);
 			MAP.buildFromFile(MAP.currentMap);
 		}
 		else if (result.r == 64 && result.g == 164 && result.b == 223) {
-			PS.color(newX, PLAYER.Y_POS, 0xE6A644);
+			PS.color(newX, PLAYER.Y_POS, 0x8A6328);
 			PLAYER.die(2, newX, PLAYER.Y_POS);
 			MAP.buildFromFile(MAP.currentMap);
 		}
@@ -611,10 +631,10 @@ var PLAYER = {
 				otherX = newX + 1;
 			}
 			var secondResult = PS.unmakeRGB(PS.color(otherX, PLAYER.Y_POS), {});
-			if (secondResult.r == 255 && secondResult.g == 255 && secondResult.b == 255) {
-					PS.color(newX, PLAYER.Y_POS, 0xE6A644);
+			if (secondResult.r == 244 && secondResult.g == 164 && secondResult.b == 96) {
+					PS.color(newX, PLAYER.Y_POS, 0x8A6328);
 					PS.radius(newX, PLAYER.Y_POS, 50);
-					PS.color(PLAYER.X_POS, PLAYER.Y_POS, PS.COLOR_WHITE);
+					PS.color(PLAYER.X_POS, PLAYER.Y_POS, 0xF4A460);
 					PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 0);
 					PS.color(otherX, PLAYER.Y_POS, 0x738F9B);
 					PS.radius(otherX, PLAYER.Y_POS, 25);
@@ -624,9 +644,9 @@ var PLAYER = {
 					MAP.checkGates();
 			}
 			else if (secondResult.r == 64 && secondResult.g == 164 && secondResult.b == 223) {
-					PS.color(newX, PLAYER.Y_POS, 0xE6A644);
+					PS.color(newX, PLAYER.Y_POS, 0x8A6328);
 					PS.radius(newX, PLAYER.Y_POS, 50);
-					PS.color(PLAYER.X_POS, PLAYER.Y_POS, PS.COLOR_WHITE);
+					PS.color(PLAYER.X_POS, PLAYER.Y_POS, 0xF4A460);
 					PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 0);
 					PS.color(otherX, PLAYER.Y_POS, 0x786600);
 					PLAYER.X_POS = newX;
@@ -635,9 +655,9 @@ var PLAYER = {
 					MAP.checkGates();
 			}
 			else if (secondResult.r == 125 && secondResult.g == 38 && secondResult.b == 205) {
-					PS.color(newX, PLAYER.Y_POS, 0xE6A644);
+					PS.color(newX, PLAYER.Y_POS, 0x8A6328);
 					PS.radius(newX, PLAYER.Y_POS, 50);
-					PS.color(PLAYER.X_POS, PLAYER.Y_POS, PS.COLOR_WHITE);
+					PS.color(PLAYER.X_POS, PLAYER.Y_POS, 0xF4A460);
 					PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 0);
 					PS.color(otherX, PLAYER.Y_POS, 0x785AB4);
 					PS.radius(otherX, PLAYER.Y_POS, 25);
@@ -649,11 +669,11 @@ var PLAYER = {
 					MAP.checkGates();
 			}
 			else if (secondResult.r == 255 && secondResult.g == 0 && secondResult.b == 0) {
-					PS.color(newX, PLAYER.Y_POS, 0xE6A644);
+					PS.color(newX, PLAYER.Y_POS, 0x8A6328);
 					PS.radius(newX, PLAYER.Y_POS, 50);
 					PS.color(PLAYER.X_POS, PLAYER.Y_POS, 0x7D26CD);
 					PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 50);
-					PS.color(otherX, PLAYER.Y_POS, PS.COLOR_WHITE);
+					PS.color(otherX, PLAYER.Y_POS, 0xF4A460);
 					PLAYER.X_POS = newX;
 					MAP.onTop = true;
 					MAP.pressedPlates -= 1;
@@ -668,13 +688,13 @@ var PLAYER = {
 			PS.audioPlay("fx_bang");
 		}
 		else if (typeOfDeath == 2) {
-			MAP.myTimer = PS.timerStart(10, PLAYER.playExplosion);
+			MAP.myTimer = PS.timerStart(10, PLAYER.playDrown);
 		}
 	},
 	
-	playExplosion : function() {
+	playDrown : function() {
 		if (MAP.anim == 1) {
-			PS.color(PS.ALL, PS.ALL, 0xFFFFFF);
+			PS.color(PS.ALL, PS.ALL, 0xF4A460);
 			PS.radius(PS.ALL, PS.ALL, 0);
 			PS.borderColor(PS.ALL, PS.ALL, 0);
 		}
@@ -742,6 +762,7 @@ PS.init = function( system, options ) {
 
 	PS.gridSize( 32, 32 );
 	PS.border(PS.ALL, PS.ALL, 0);
+	PS.gridColor(0xF4A460);
 	PS.statusText("Arrow keys to move!");
 	PS.audioLoad("fx_bang");
 	PS.audioLoad("fx_drip2");
@@ -754,10 +775,10 @@ PS.init = function( system, options ) {
 	MAP.MAPS.push(MAP.MAP5);
 	MAP.MAPS.push(MAP.MAP6);
 	MAP.MAPS.push(MAP.MAP7);
-    MAP.MAPS.push(MAP.MAP8);
+    	MAP.MAPS.push(MAP.MAP8);
 	MAP.MAPS.push(MAP.MAP9);
 	MAP.MAPS.push(MAP.MAP10);
-    MAP.MAPS.push(MAP.MAP11);
+    	MAP.MAPS.push(MAP.MAP11);
 	MAP.buildFromFile(MAP.currentMap);
 	
 	// Add any other initialization code you need here
@@ -925,17 +946,20 @@ PS.keyUp = function( key, shift, ctrl, options ) {
 			MAP.currentMap = 7;
 			break;
 		case 56:
-            MAP.buildFromFile(8);
-            MAP.currentMap = 8;
-            break;
-        case 57:
-            MAP.buildFromFile(9);
-            MAP.currentMap = 9;
-            break;
-        case 48:
-            MAP.buildFromFile(10);
-            MAP.currentMap = 10;
-            break;	
+            		MAP.buildFromFile(8);
+            		MAP.currentMap = 8;
+            		break;
+        	case 57:
+            		MAP.buildFromFile(9);
+            		MAP.currentMap = 9;
+            		break;
+       	 	case 48:
+            		MAP.buildFromFile(10);
+            		MAP.currentMap = 10;
+            		break;
+           	case	189:
+           		MAP.buildFromFile(11);
+           		MAP.currentMap = 11;
 		default:
 			break;
 	}
