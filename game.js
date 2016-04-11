@@ -108,6 +108,8 @@ var MAP = {
 						case "S":
 							PS.color(X, i, 0x8A6328);
 							PS.radius(X, i, 50);
+							//PS.border(X, i, 1);
+							//PS.borderColor(X, i, 0x000000);
 							PLAYER.X_POS = X;
 							PLAYER.Y_POS = i;
 							break;
@@ -120,7 +122,7 @@ var MAP = {
 							PS.radius(X, i, 50);
 							break;
 						case "~":
-							PS.color(X, i, 0x40A4DF);
+							PS.color(X, i, 0x000080);
 							break;
 						case "o":
 							PS.color(X, i, 0x7D26CD);
@@ -333,7 +335,7 @@ var PLAYER = {
 				PLAYER.Y_POS = newY;
 				MAP.onTop = false;
 			}
-			else if (secondResult.r == 64 && secondResult.g == 164 && secondResult.b == 223) {
+			else if (secondResult.r == 0 && secondResult.g == 0 && secondResult.b == 128) {
 				if (MAP.onTOP) {
 					PS.color(PLAYER.X_POS, newY, 0x8A6328);
 					PS.radius(PLAYER.X_POS, newY, 50);
@@ -401,8 +403,9 @@ var PLAYER = {
 			PLAYER.die(1, PLAYER.X_POS, newY);
 			MAP.buildFromFile(MAP.currentMap);
 		}
-		else if (result.r == 64 && result.g == 164 && result.b == 223) {
-			//PS.color(PLAYER.X_POS, newY, 0x8A6328);
+		else if (result.r == 0 && result.g == 0 && result.b == 128) {
+			PS.color(PLAYER.X_POS, PLAYER.Y_POS, 0xF4A460);
+			PS.color(PLAYER.X_POS, newY, 0x000090);
 			PLAYER.die(2, PLAYER.X_POS, newY);
 			//MAP.buildFromFile(MAP.currentMap);
 		}
@@ -427,7 +430,7 @@ var PLAYER = {
 				MAP.pressedPlates -= 1;
 				MAP.checkGates();
 			}
-			else if (secondResult.r == 64 && secondResult.g == 164 && secondResult.b == 223) {
+			else if (secondResult.r == 0 && secondResult.g == 0 && secondResult.b == 128) {
 				PS.color(PLAYER.X_POS, newY, 0x8A6328);
 				PS.radius(PLAYER.X_POS, newY, 50);
 				PS.color(PLAYER.X_POS, PLAYER.Y_POS, 0xF4A460);
@@ -552,7 +555,7 @@ var PLAYER = {
 				PLAYER.X_POS = newX;
 				MAP.onTop = false;
 			}
-			else if (secondResult.r == 64 && secondResult.g == 164 && secondResult.b == 223) {
+			else if (secondResult.r == 0 && secondResult.g == 0 && secondResult.b == 128) {
 				if (MAP.onTop) {
 					PS.color(newX, PLAYER.Y_POS, 0x8A6328);
 					PS.radius(newX, PLAYER.Y_POS, 50);
@@ -618,8 +621,10 @@ var PLAYER = {
 			PLAYER.die(1, newX, PLAYER.Y_POS);
 			MAP.buildFromFile(MAP.currentMap);
 		}
-		else if (result.r == 64 && result.g == 164 && result.b == 223) {
+		else if (result.r == 0 && result.g == 0 && result.b == 128) {
 			//PS.color(newX, PLAYER.Y_POS, 0x8A6328);
+			PS.color(PLAYER.X_POS, PLAYER.Y_POS, 0xF4A460);
+			PS.color(newX, PLAYER.Y_POS, 0x000090);
 			PLAYER.die(2, newX, PLAYER.Y_POS);
 		}
 		
@@ -644,7 +649,7 @@ var PLAYER = {
 					MAP.pressedPlates -= 1;
 					MAP.checkGates();
 			}
-			else if (secondResult.r == 64 && secondResult.g == 164 && secondResult.b == 223) {
+			else if (secondResult.r == 0 && secondResult.g == 0 && secondResult.b == 128) {
 					PS.color(newX, PLAYER.Y_POS, 0x8A6328);
 					PS.radius(newX, PLAYER.Y_POS, 50);
 					PS.color(PLAYER.X_POS, PLAYER.Y_POS, 0xF4A460);
@@ -705,7 +710,7 @@ var PLAYER = {
 			for (var i=0;i<8;i++){
 				for (var j=0;j<32;j++)
 				{
-					PS.color(j, i, 0x40A4DF);
+					PS.color(j, i, 0x000080);
 				}
 			}
 			}
@@ -713,7 +718,7 @@ var PLAYER = {
 				for (var i=8;i<16;i++){
 					for (var j=0;j<32;j++)
 					{
-						PS.color(j, i, 0x40A4DF);
+						PS.color(j, i, 0x000080);
 					}
 				}
 			}
@@ -721,7 +726,7 @@ var PLAYER = {
 				for (var i=16;i<24;i++){
 					for (var j=0;j<32;j++)
 					{
-						PS.color(j, i, 0x40A4DF);
+						PS.color(j, i, 0x000080);
 					}
 				}
 			}
@@ -729,7 +734,7 @@ var PLAYER = {
 				for (var i=24;i<32;i++){
 					for (var j=0;j<32;j++)
 					{
-						PS.color(j, i, 0x40A4DF);
+						PS.color(j, i, 0x000080);
 					}
 				}
 			}
