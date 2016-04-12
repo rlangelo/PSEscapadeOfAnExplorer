@@ -114,7 +114,7 @@ var MAP = {
 							PLAYER.Y_POS = i;
 							break;
 						case "B":
-							PS.color(X, i, 0x738F9B);
+							PS.color(X, i, 0x474747);
 							PS.radius(X, i, 25);
 							break;
 						case "X":
@@ -122,7 +122,7 @@ var MAP = {
 							PS.radius(X, i, 50);
 							break;
 						case "~":
-							PS.color(X, i, 0x000080);
+							PS.color(X, i, 0x40A4DF);
 							break;
 						case "o":
 							PS.color(X, i, 0x7D26CD);
@@ -227,8 +227,8 @@ var MAP = {
 					result = PS.unmakeRGB(PS.color(i, j), {});
 					if (result.r == 125 && result.g == 38 && result.b == 206) {
 						PS.color(i, j, 0xF4A460);
-						PS.border(i, j, 1);
-						PS.borderColor(i, j, 125, 38, 206);
+						PS.border(i, j, 0);
+						//PS.borderColor(i, j, 125, 38, 206);
 						PS.audioPlay("fx_swoosh");
 					}
 				}
@@ -318,7 +318,7 @@ var PLAYER = {
 				MAP.currentMap = 1;
 			}
 		}
-		else if (result.r == 115 && result.g == 143 && result.b == 155) {
+		else if (result.r == 71 && result.g == 71 && result.b == 71) {
 			var otherY;
 			if (direction == 1) {
 				otherY = newY-1;
@@ -336,7 +336,7 @@ var PLAYER = {
 					PS.radius(PLAYER.X_POS, newY, 50);
 					PS.color(PLAYER.X_POS, PLAYER.Y_POS, 0x7D26CD);
 					PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 50);
-					PS.color(PLAYER.X_POS, otherY, 0x738F9B);
+					PS.color(PLAYER.X_POS, otherY, 0x474747);
 					PS.radius(PLAYER.X_POS, otherY, 25);
 				}
 				else {
@@ -347,13 +347,13 @@ var PLAYER = {
 					PS.radius(PLAYER.X_POS, newY, 50);
 					PS.color(PLAYER.X_POS, PLAYER.Y_POS, 0xF4A460);
 					PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 0);
-					PS.color(PLAYER.X_POS, otherY, 0x738F9B);
+					PS.color(PLAYER.X_POS, otherY, 0x474747);
 					PS.radius(PLAYER.X_POS, otherY, 25);
 				}
 				PLAYER.Y_POS = newY;
 				MAP.onTop = false;
 			}
-			else if (secondResult.r == 0 && secondResult.g == 0 && secondResult.b == 128) {
+			else if (secondResult.r == 64 && secondResult.g == 164 && secondResult.b == 223) {
 				if (MAP.onTOP) {
 					PS.color(PLAYER.X_POS, newY, 0x8A6328);
 					PS.radius(PLAYER.X_POS, newY, 50);
@@ -442,8 +442,9 @@ var PLAYER = {
 			PLAYER.die(1, PLAYER.X_POS, newY);
 			MAP.buildFromFile(MAP.currentMap);
 		}
-		else if (result.r == 0 && result.g == 0 && result.b == 128) {
+		else if (result.r == 64 && result.g == 164 && result.b == 223) {
 			PS.color(PLAYER.X_POS, PLAYER.Y_POS, 0xF4A460);
+			PS.border(PLAYER.X_POS, PLAYER.Y_POS, 0);
 			PS.color(PLAYER.X_POS, newY, 0x000090);
 			PLAYER.die(2, PLAYER.X_POS, newY);
 			//MAP.buildFromFile(MAP.currentMap);
@@ -465,14 +466,14 @@ var PLAYER = {
 				PS.radius(PLAYER.X_POS, newY, 50);
 				PS.color(PLAYER.X_POS, PLAYER.Y_POS, 0xF4A460);
 				PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 0);
-				PS.color(PLAYER.X_POS, otherY, 0x738F9B);
+				PS.color(PLAYER.X_POS, otherY, 0x474747);
 				PS.radius(PLAYER.X_POS, otherY, 25);
 				PLAYER.Y_POS = newY;
 				MAP.onTop = true;
 				MAP.pressedPlates -= 1;
 				MAP.checkGates();
 			}
-			else if (secondResult.r == 0 && secondResult.g == 0 && secondResult.b == 128) {
+			else if (secondResult.r == 64 && secondResult.g == 164 && secondResult.b == 223) {
 				PS.color(PLAYER.X_POS, newY, 0x8A6328);
 				PS.border(PLAYER.X_POS, newY, 1);
 				PS.borderColor(PLAYER.X_POS, newY, 0x000000);
@@ -589,7 +590,7 @@ var PLAYER = {
 			}
 				
 		}
-		else if (result.r == 115 && result.g == 143 && result.b == 155) {
+		else if (result.r == 71 && result.g == 71 && result.b == 71) {
 			var otherX;
 			if (direction == 1) {
 				otherX = newX - 1;
@@ -607,7 +608,7 @@ var PLAYER = {
 					PS.radius(newX, PLAYER.Y_POS, 50);
 					PS.color(PLAYER.X_POS, PLAYER.Y_POS, 0x7D26CD);
 					PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 50);
-					PS.color(otherX, PLAYER.Y_POS, 0x738F9B);
+					PS.color(otherX, PLAYER.Y_POS, 0x474747);
 					PS.radius(otherX, PLAYER.Y_POS, 25);
 				}
 				else {
@@ -618,13 +619,13 @@ var PLAYER = {
 					PS.radius(newX, PLAYER.Y_POS, 50);
 					PS.color(PLAYER.X_POS, PLAYER.Y_POS, 0xF4A460);
 					PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 0);
-					PS.color(otherX, PLAYER.Y_POS, 0x738F9B);
+					PS.color(otherX, PLAYER.Y_POS, 0x474747);
 					PS.radius(otherX, PLAYER.Y_POS, 25);
 				}
 				PLAYER.X_POS = newX;
 				MAP.onTop = false;
 			}
-			else if (secondResult.r == 0 && secondResult.g == 0 && secondResult.b == 128) {
+			else if (secondResult.r == 64 && secondResult.g == 164 && secondResult.b == 223) {
 				if (MAP.onTop) {
 					PS.color(newX, PLAYER.Y_POS, 0x8A6328);
 					PS.border(newX, PLAYER.Y_POS, 1);
@@ -711,7 +712,7 @@ var PLAYER = {
 			PLAYER.die(1, newX, PLAYER.Y_POS);
 			MAP.buildFromFile(MAP.currentMap);
 		}
-		else if (result.r == 0 && result.g == 0 && result.b == 128) {
+		else if (result.r == 64 && result.g == 164 && result.b == 223) {
 			//PS.color(newX, PLAYER.Y_POS, 0x8A6328);
 			PS.border(PLAYER.X_POS, PLAYER.Y_POS, 0);
 			PS.color(PLAYER.X_POS, PLAYER.Y_POS, 0xF4A460);
@@ -736,14 +737,14 @@ var PLAYER = {
 					PS.radius(newX, PLAYER.Y_POS, 50);
 					PS.color(PLAYER.X_POS, PLAYER.Y_POS, 0xF4A460);
 					PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 0);
-					PS.color(otherX, PLAYER.Y_POS, 0x738F9B);
+					PS.color(otherX, PLAYER.Y_POS, 0x474747);
 					PS.radius(otherX, PLAYER.Y_POS, 25);
 					MAP.onTop = true;
 					PLAYER.X_POS = newX;
 					MAP.pressedPlates -= 1;
 					MAP.checkGates();
 			}
-			else if (secondResult.r == 0 && secondResult.g == 0 && secondResult.b == 128) {
+			else if (secondResult.r == 64 && secondResult.g == 164 && secondResult.b == 223) {
 					PS.color(newX, PLAYER.Y_POS, 0x8A6328);
 					PS.border(newX, PLAYER.Y_POS, 1);
 					PS.borderColor(newX, PLAYER.Y_POS, 0x000000);
@@ -794,10 +795,50 @@ var PLAYER = {
 	
 	die : function(typeOfDeath, x, y) {
 		if (typeOfDeath == 1) {
-			PS.audioPlay("fx_bang");
+			//PS.audioPlay("fx_bang");
+			MAP.myTimer = PS.timerStart(10, PLAYER.playExplosion);
 		}
 		else if (typeOfDeath == 2) {
 			MAP.myTimer = PS.timerStart(10, PLAYER.playDrown);
+		}
+	},
+	
+	playExplosion : function() {
+		if (MAP.anim == 1) {
+			PS.color(PS.ALL, PS.ALL, 0xFFFFFF);
+			PS.statusText("");
+			PS.gridColor(0xFFFFFF);
+			PS.radius(PS.ALL, PS.ALL, 0);
+			PS.borderColor(PS.ALL, PS.ALL, 0);
+			PS.border(PS.ALL, PS.ALL, 0);
+		}
+		if (MAP.anim < 4) {
+			MAP.animPlaying = true;
+			if (MAP.anim == 1) {
+				PS.color(PS.ALL, PS.ALL, 0x000000);
+				PS.gridColor(0x000000);
+			}
+			else if (MAP.anim == 2) {
+				PS.color(PS.ALL, PS.ALL, 0xFFFFFF);
+				PS.gridColor(0xFFFFFF);
+			}
+			else if (MAP.anim == 3) {
+				PS.color(PS.ALL, PS.ALL, 0x000000);
+				PS.gridColor(0x000000);
+			}
+			else if (MAP.anim == 4) {
+				PS.color(PS.ALL, PS.ALL, 0xFFFFFF);
+				PS.gridColor(0xFFFFFF);
+			}
+			PS.audioPlay("fx_bang");
+			MAP.anim += 1;
+		}
+		else {
+			PS.timerStop(MAP.myTimer);
+			MAP.anim = 1;
+			PS.gridColor(0xF4A460);
+			MAP.animPlaying = false;
+			MAP.buildFromFile(MAP.currentMap);
 		}
 	},
 	
@@ -806,6 +847,7 @@ var PLAYER = {
 			PS.color(PS.ALL, PS.ALL, 0xF4A460);
 			PS.radius(PS.ALL, PS.ALL, 0);
 			PS.borderColor(PS.ALL, PS.ALL, 0);
+			PS.gridColor(0x40A4DF);
 		}
 		if (MAP.anim < 4) {
 			MAP.animPlaying = true;
@@ -813,7 +855,7 @@ var PLAYER = {
 			for (var i=0;i<8;i++){
 				for (var j=0;j<32;j++)
 				{
-					PS.color(j, i, 0x000080);
+					PS.color(j, i, 0x40A4DF);
 				}
 			}
 			}
@@ -821,7 +863,7 @@ var PLAYER = {
 				for (var i=8;i<16;i++){
 					for (var j=0;j<32;j++)
 					{
-						PS.color(j, i, 0x000080);
+						PS.color(j, i, 0x40A4DF);
 					}
 				}
 			}
@@ -829,7 +871,7 @@ var PLAYER = {
 				for (var i=16;i<24;i++){
 					for (var j=0;j<32;j++)
 					{
-						PS.color(j, i, 0x000080);
+						PS.color(j, i, 0x40A4DF);
 					}
 				}
 			}
@@ -837,7 +879,7 @@ var PLAYER = {
 				for (var i=24;i<32;i++){
 					for (var j=0;j<32;j++)
 					{
-						PS.color(j, i, 0x000080);
+						PS.color(j, i, 0x40A4DF);
 					}
 				}
 			}
@@ -846,7 +888,8 @@ var PLAYER = {
 		}
 		else {
 			PS.timerStop(MAP.myTimer);
-			MAP.anim = 0;
+			PS.gridColor(0xF4A460);
+			MAP.anim = 1;
 			MAP.animPlaying = false;
 			MAP.buildFromFile(MAP.currentMap);
 		}
