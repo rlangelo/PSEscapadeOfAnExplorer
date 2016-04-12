@@ -80,7 +80,7 @@ var MAP = {
 	onTop: false,
 	mid: 15,
 	animPlaying: false,
-	MUSIC: "unc",
+	MUSIC: "zelda",
 	
 	calculateOffset : function(mapNumber) {
 		var leftMargin;
@@ -108,8 +108,8 @@ var MAP = {
 						case "S":
 							PS.color(X, i, 0x8A6328);
 							PS.radius(X, i, 50);
-							//PS.border(X, i, 1);
-							//PS.borderColor(X, i, 0x000000);
+							PS.border(X, i, 1);
+							PS.borderColor(X, i, 0x000000);
 							PLAYER.X_POS = X;
 							PLAYER.Y_POS = i;
 							break;
@@ -267,13 +267,19 @@ var PLAYER = {
 			if (MAP.onTop) {
 				PS.color(PLAYER.X_POS, newY, 0x8A6328);
 				PS.radius(PLAYER.X_POS, newY, 50);
+				PS.border(PLAYER.X_POS, newY, 1);
+				PS.borderColor(PLAYER.X_POS, newY, 0x000000);
 				PS.color(PLAYER.X_POS, PLAYER.Y_POS, 0x7D26CD);
 				PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 50);
+				PS.border(PLAYER.X_POS, PLAYER.Y_POS, 0);
 				MAP.onTop = false;
 			}
 			else {
 				PS.color(PLAYER.X_POS, newY, 0x8A6328);
 				PS.radius(PLAYER.X_POS, newY, 50);
+				PS.border(PLAYER.X_POS, newY, 1);
+				PS.borderColor(PLAYER.X_POS, newY, 0x000000);
+				PS.border(PLAYER.X_POS, PLAYER.Y_POS, 0);
 				PS.color(PLAYER.X_POS, PLAYER.Y_POS, 0xF4A460);
 				PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 0);
 			}
@@ -282,6 +288,9 @@ var PLAYER = {
 		else if (result.r == 125 && result.g == 38 && result.b == 205) {
 			MAP.onTop = true;
 			PS.color(PLAYER.X_POS, newY, 0x8A6328);
+			PS.border(PLAYER.X_POS, newY, 1);
+			PS.borderColor(PLAYER.X_POS, newY, 0x000000);
+			PS.border(PLAYER.X_POS, PLAYER.Y_POS, 0);
 			PS.radius(PLAYER.X_POS, newY, 50);
 			PS.color(PLAYER.X_POS, PLAYER.Y_POS, 0xF4A460);
 			PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 0);
@@ -292,6 +301,9 @@ var PLAYER = {
 				PS.audioPlay("fx_coin7");
 				MAP.currentMap += 1;
 				PS.color(PLAYER.X_POS, newY, 0x8A6328);
+				PS.border(PLAYER.X_POS, newY, 1);
+				PS.borderColor(PLAYER.X_POS, newY, 0x000000);
+				PS.border(PLAYER.X_POS, PLAYER.Y_POS, 0);
 				PS.radius(PLAYER.X_POS, newY, 50);
 				PS.color(PLAYER.X_POS, PLAYER.Y_POS, 0xF4A460);
 				PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 0);
@@ -318,6 +330,9 @@ var PLAYER = {
 			if (secondResult.r == 244 && secondResult.g == 164 && secondResult.b == 96) {
 				if (MAP.onTop) {
 					PS.color(PLAYER.X_POS, newY, 0x8A6328);
+					PS.border(PLAYER.X_POS, newY, 1);
+					PS.borderColor(PLAYER.X_POS, newY, 0x000000);
+					PS.border(PLAYER.X_POS, PLAYER.Y_POS, 0);
 					PS.radius(PLAYER.X_POS, newY, 50);
 					PS.color(PLAYER.X_POS, PLAYER.Y_POS, 0x7D26CD);
 					PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 50);
@@ -326,6 +341,9 @@ var PLAYER = {
 				}
 				else {
 					PS.color(PLAYER.X_POS, newY, 0x8A6328);
+					PS.border(PLAYER.X_POS, newY, 1);
+					PS.borderColor(PLAYER.X_POS, newY, 0x000000);
+					PS.border(PLAYER.X_POS, PLAYER.Y_POS, 0);
 					PS.radius(PLAYER.X_POS, newY, 50);
 					PS.color(PLAYER.X_POS, PLAYER.Y_POS, 0xF4A460);
 					PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 0);
@@ -339,12 +357,18 @@ var PLAYER = {
 				if (MAP.onTOP) {
 					PS.color(PLAYER.X_POS, newY, 0x8A6328);
 					PS.radius(PLAYER.X_POS, newY, 50);
+					PS.border(PLAYER.X_POS, newY, 1);
+					PS.borderColor(PLAYER.X_POS, newY, 0x000000);
+					PS.border(PLAYER.X_POS, PLAYER.Y_POS, 0);
 					PS.color(PLAYER.X_POS, PLAYER.Y_POS, 0x7D26CD);
 					PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 50);
 					PS.color(PLAYER.X_POS, otherY, 0x786600);
 				}
 				else {
 					PS.color(PLAYER.X_POS, newY, 0x8A6328);
+					PS.border(PLAYER.X_POS, newY, 1);
+					PS.borderColor(PLAYER.X_POS, newY, 0x000000);
+					PS.border(PLAYER.X_POS, PLAYER.Y_POS, 0);
 					PS.radius(PLAYER.X_POS, newY, 50);
 					PS.color(PLAYER.X_POS, PLAYER.Y_POS, 0xF4A460);
 					PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 0);
@@ -359,6 +383,9 @@ var PLAYER = {
 				if (MAP.onTop) {
 					PS.color(PLAYER.X_POS, newY, 0x8A6328);
 					PS.radius(PLAYER.X_POS, newY, 50);
+					PS.border(PLAYER.X_POS, newY, 1);
+					PS.borderColor(PLAYER.X_POS, newY, 0x000000);
+					PS.border(PLAYER.X_POS, PLAYER.Y_POS, 0);
 					PS.color(PLAYER.X_POS, PLAYER.Y_POS, 0x7D26CD);
 					PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 50);
 					PS.color(PLAYER.X_POS, otherY, 0x785AB4);
@@ -366,6 +393,9 @@ var PLAYER = {
 				}
 				else {
 					PS.color(PLAYER.X_POS, newY, 0x8A6328);
+					PS.border(PLAYER.X_POS, newY, 1);
+					PS.borderColor(PLAYER.X_POS, newY, 0x000000);
+					PS.border(PLAYER.X_POS, PLAYER.Y_POS, 0);
 					PS.radius(PLAYER.X_POS, newY, 50);
 					PS.color(PLAYER.X_POS, PLAYER.Y_POS, 0xF4A460);
 					PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 0);
@@ -380,6 +410,9 @@ var PLAYER = {
 			else if (secondResult.r == 255 && secondResult.g == 0 && secondResult.b == 0) {
 				if (MAP.onTop) {
 					PS.color(PLAYER.X_POS, newY, 0x8A6328);
+					PS.border(PLAYER.X_POS, newY, 1);
+					PS.borderColor(PLAYER.X_POS, newY, 0x000000);
+					PS.border(PLAYER.X_POS, PLAYER.Y_POS, 0);
 					PS.radius(PLAYER.X_POS, newY, 50);
 					PS.color(PLAYER.X_POS, PLAYER.Y_POS, 0xF4A460);
 					PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 0);
@@ -387,6 +420,9 @@ var PLAYER = {
 				}
 				else {
 					PS.color(PLAYER.X_POS, newY, 0x8A6328);
+					PS.border(PLAYER.X_POS, newY, 1);
+					PS.borderColor(PLAYER.X_POS, newY, 0x000000);
+					PS.border(PLAYER.X_POS, PLAYER.Y_POS, 0);
 					PS.radius(PLAYER.X_POS, newY, 50);
 					PS.color(PLAYER.X_POS, PLAYER.Y_POS, 0xF4A460);
 					PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 0);
@@ -400,6 +436,9 @@ var PLAYER = {
 		}
 		else if (result.r == 255 && result.g == 0 && result.b == 0) {
 			PS.color(PLAYER.X_POS, newY, 0x8A6328);
+			PS.border(PLAYER.X_POS, newY, 1);
+			PS.borderColor(PLAYER.X_POS, newY, 0x000000);
+			PS.border(PLAYER.X_POS, PLAYER.Y_POS, 0);
 			PLAYER.die(1, PLAYER.X_POS, newY);
 			MAP.buildFromFile(MAP.currentMap);
 		}
@@ -420,6 +459,9 @@ var PLAYER = {
 			var secondResult = PS.unmakeRGB(PS.color(PLAYER.X_POS, otherY), {});
 			if (secondResult.r == 244 && secondResult.g == 164 && secondResult.b == 96) {
 				PS.color(PLAYER.X_POS, newY, 0x8A6328);
+				PS.border(PLAYER.X_POS, newY, 1);
+				PS.borderColor(PLAYER.X_POS, newY, 0x000000);
+				PS.border(PLAYER.X_POS, PLAYER.Y_POS, 0);
 				PS.radius(PLAYER.X_POS, newY, 50);
 				PS.color(PLAYER.X_POS, PLAYER.Y_POS, 0xF4A460);
 				PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 0);
@@ -432,6 +474,9 @@ var PLAYER = {
 			}
 			else if (secondResult.r == 0 && secondResult.g == 0 && secondResult.b == 128) {
 				PS.color(PLAYER.X_POS, newY, 0x8A6328);
+				PS.border(PLAYER.X_POS, newY, 1);
+				PS.borderColor(PLAYER.X_POS, newY, 0x000000);
+				PS.border(PLAYER.X_POS, PLAYER.Y_POS, 0);
 				PS.radius(PLAYER.X_POS, newY, 50);
 				PS.color(PLAYER.X_POS, PLAYER.Y_POS, 0xF4A460);
 				PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 0);
@@ -443,6 +488,9 @@ var PLAYER = {
 			}
 			else if (secondResult.r == 125 && secondResult.g == 38 && secondResult.b == 205) {
 				PS.color(PLAYER.X_POS, newY, 0x8A6328);
+				PS.border(PLAYER.X_POS, newY, 1);
+				PS.borderColor(PLAYER.X_POS, newY, 0x000000);
+				PS.border(PLAYER.X_POS, PLAYER.Y_POS, 0);
 				PS.radius(PLAYER.X_POS, newY, 50);
 				PS.color(PLAYER.X_POS, PLAYER.Y_POS, 0xF4A460);
 				PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 0);
@@ -457,6 +505,9 @@ var PLAYER = {
 			}
 			else if (secondResult.r == 255 && secondResult.g == 0 && secondResult.b == 0) {
 				PS.color(PLAYER.X_POS, newY, 0x8A6328);
+				PS.border(PLAYER.X_POS, newY, 1);
+				PS.borderColor(PLAYER.X_POS, newY, 0x000000);
+				PS.border(PLAYER.X_POS, PLAYER.Y_POS, 0);
 				PS.radius(PLAYER.X_POS, newY, 50);
 				PS.color(PLAYER.X_POS, PLAYER.Y_POS, 0xF4A460);
 				PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 0);
@@ -485,6 +536,9 @@ var PLAYER = {
 			}
 			if (MAP.onTop) {
 				PS.color(newX, PLAYER.Y_POS, 0x8A6328);
+				PS.border(newX, PLAYER.Y_POS, 1);
+				PS.borderColor(newX, PLAYER.Y_POS, 0x000000);
+				PS.border(PLAYER.X_POS, PLAYER.Y_POS, 0);
 				PS.radius(newX, PLAYER.Y_POS, 50);
 				PS.color(PLAYER.X_POS, PLAYER.Y_POS, 0x7D26CD);
 				PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 50);
@@ -492,6 +546,9 @@ var PLAYER = {
 			}
 			else {
 				PS.color(newX, PLAYER.Y_POS, 0x8A6328);
+				PS.border(newX, PLAYER.Y_POS, 1);
+				PS.borderColor(newX, PLAYER.Y_POS, 0x000000);
+				PS.border(PLAYER.X_POS, PLAYER.Y_POS, 0);
 				PS.radius(newX, PLAYER.Y_POS, 50);
 				PS.color(PLAYER.X_POS, PLAYER.Y_POS, 0xF4A460);
 				PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 0);
@@ -501,6 +558,9 @@ var PLAYER = {
 		else if (result.r == 125 && result.g == 38 && result.b == 205) {
 			MAP.onTop = true;
 			PS.color(newX, PLAYER.Y_POS, 0x8A6328);
+			PS.border(newX, PLAYER.Y_POS, 1);
+			PS.borderColor(newX, PLAYER.Y_POS, 0x000000);
+			PS.border(PLAYER.X_POS, PLAYER.Y_POS, 0);
 			PS.radius(newX, PLAYER.Y_POS, 50);
 			PS.color(PLAYER.X_POS, PLAYER.Y_POS, 0xF4A460);
 			PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 0);
@@ -511,6 +571,9 @@ var PLAYER = {
 				PS.audioPlay("fx_coin7");
 				MAP.currentMap += 1;
 				PS.color(newX, PLAYER.Y_POS, 0x8A6328);
+				PS.border(newX, PLAYER.Y_POS, 1);
+				PS.borderColor(newX, PLAYER.Y_POS, 0x000000);
+				PS.border(PLAYER.X_POS, PLAYER.Y_POS, 0);
 				PS.radius(newX, PLAYER.Y_POS, 50);
 				PS.color(PLAYER.X_POS, PLAYER.Y_POS, 0xF4A460);
 				PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 0);
@@ -538,6 +601,9 @@ var PLAYER = {
 			if (secondResult.r == 244 && secondResult.g == 164 && secondResult.b == 96) {
 				if (MAP.onTop) {
 					PS.color(newX, PLAYER.Y_POS, 0x8A6328);
+					PS.border(newX, PLAYER.Y_POS, 1);
+					PS.borderColor(newX, PLAYER.Y_POS, 0x000000);
+					PS.border(PLAYER.X_POS, PLAYER.Y_POS, 0);
 					PS.radius(newX, PLAYER.Y_POS, 50);
 					PS.color(PLAYER.X_POS, PLAYER.Y_POS, 0x7D26CD);
 					PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 50);
@@ -546,6 +612,9 @@ var PLAYER = {
 				}
 				else {
 					PS.color(newX, PLAYER.Y_POS, 0x8A6328);
+					PS.border(newX, PLAYER.Y_POS, 1);
+					PS.borderColor(newX, PLAYER.Y_POS, 0x000000);
+					PS.border(PLAYER.X_POS, PLAYER.Y_POS, 0);
 					PS.radius(newX, PLAYER.Y_POS, 50);
 					PS.color(PLAYER.X_POS, PLAYER.Y_POS, 0xF4A460);
 					PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 0);
@@ -558,6 +627,9 @@ var PLAYER = {
 			else if (secondResult.r == 0 && secondResult.g == 0 && secondResult.b == 128) {
 				if (MAP.onTop) {
 					PS.color(newX, PLAYER.Y_POS, 0x8A6328);
+					PS.border(newX, PLAYER.Y_POS, 1);
+					PS.borderColor(newX, PLAYER.Y_POS, 0x000000);
+					PS.border(PLAYER.X_POS, PLAYER.Y_POS, 0);
 					PS.radius(newX, PLAYER.Y_POS, 50);
 					PS.color(PLAYER.X_POS, PLAYER.Y_POS, 0x7D26CD);
 					PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 50);
@@ -565,6 +637,9 @@ var PLAYER = {
 				}
 				else {
 					PS.color(newX, PLAYER.Y_POS, 0x8A6328);
+					PS.border(newX, PLAYER.Y_POS, 1);
+					PS.borderColor(newX, PLAYER.Y_POS, 0x000000);
+					PS.border(PLAYER.X_POS, PLAYER.Y_POS, 0);
 					PS.radius(newX, PLAYER.Y_POS, 50);
 					PS.color(PLAYER.X_POS, PLAYER.Y_POS, 0xF4A460);
 					PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 0);
@@ -577,6 +652,9 @@ var PLAYER = {
 			else if (secondResult.r == 125 && secondResult.g == 38 && secondResult.b == 205) {
 				if (MAP.onTop) {
 					PS.color(newX, PLAYER.Y_POS, 0x8A6328);
+					PS.border(newX, PLAYER.Y_POS, 1);
+					PS.borderColor(newX, PLAYER.Y_POS, 0x000000);
+					PS.border(PLAYER.X_POS, PLAYER.Y_POS, 0);
 					PS.radius(newX, PLAYER.Y_POS, 50);
 					PS.color(PLAYER.X_POS, PLAYER.Y_POS, 0x7D26CD);
 					PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 50);
@@ -585,6 +663,9 @@ var PLAYER = {
 				}
 				else {
 					PS.color(newX, PLAYER.Y_POS, 0x8A6328);
+					PS.border(newX, PLAYER.Y_POS, 1);
+					PS.borderColor(newX, PLAYER.Y_POS, 0x000000);
+					PS.border(PLAYER.X_POS, PLAYER.Y_POS, 0);
 					PS.radius(newX, PLAYER.Y_POS, 50);
 					PS.color(PLAYER.X_POS, PLAYER.Y_POS, 0xF4A460);
 					PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 0);
@@ -599,6 +680,9 @@ var PLAYER = {
 			else if (secondResult.r == 255 && secondResult.g == 0 && secondResult.b == 0) {
 				if (MAP.onTop) {
 					PS.color(newX, PLAYER.Y_POS, 0x8A6328);
+					PS.border(newX, PLAYER.Y_POS, 1);
+					PS.borderColor(newX, PLAYER.Y_POS, 0x000000);
+					PS.border(PLAYER.X_POS, PLAYER.Y_POS, 0);
 					PS.radius(newX, PLAYER.Y_POS, 50);
 					PS.color(PLAYER.X_POS, PLAYER.Y_POS, 0x7D26CD);
 					PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 50);
@@ -606,6 +690,9 @@ var PLAYER = {
 				}
 				else {
 					PS.color(newX, PLAYER.Y_POS, 0x8A6328);
+					PS.border(newX, PLAYER.Y_POS, 1);
+					PS.borderColor(newX, PLAYER.Y_POS, 0x000000);
+					PS.border(PLAYER.X_POS, PLAYER.Y_POS, 0);
 					PS.radius(newX, PLAYER.Y_POS, 50);
 					PS.color(PLAYER.X_POS, PLAYER.Y_POS, 0xF4A460);
 					PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 0);
@@ -618,11 +705,15 @@ var PLAYER = {
 		}
 		else if (result.r == 255 && result.g == 0 && result.b == 0) {
 			PS.color(newX, PLAYER.Y_POS, 0x8A6328);
+			PS.border(newX, PLAYER.Y_POS, 1);
+			PS.borderColor(newX, PLAYER.Y_POS, 0x000000);
+			PS.border(PLAYER.X_POS, PLAYER.Y_POS, 0);
 			PLAYER.die(1, newX, PLAYER.Y_POS);
 			MAP.buildFromFile(MAP.currentMap);
 		}
 		else if (result.r == 0 && result.g == 0 && result.b == 128) {
 			//PS.color(newX, PLAYER.Y_POS, 0x8A6328);
+			PS.border(PLAYER.X_POS, PLAYER.Y_POS, 0);
 			PS.color(PLAYER.X_POS, PLAYER.Y_POS, 0xF4A460);
 			PS.color(newX, PLAYER.Y_POS, 0x000090);
 			PLAYER.die(2, newX, PLAYER.Y_POS);
@@ -639,6 +730,9 @@ var PLAYER = {
 			var secondResult = PS.unmakeRGB(PS.color(otherX, PLAYER.Y_POS), {});
 			if (secondResult.r == 244 && secondResult.g == 164 && secondResult.b == 96) {
 					PS.color(newX, PLAYER.Y_POS, 0x8A6328);
+					PS.border(newX, PLAYER.Y_POS, 1);
+					PS.borderColor(newX, PLAYER.Y_POS, 0x000000);
+					PS.border(PLAYER.X_POS, PLAYER.Y_POS, 0);
 					PS.radius(newX, PLAYER.Y_POS, 50);
 					PS.color(PLAYER.X_POS, PLAYER.Y_POS, 0xF4A460);
 					PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 0);
@@ -651,6 +745,9 @@ var PLAYER = {
 			}
 			else if (secondResult.r == 0 && secondResult.g == 0 && secondResult.b == 128) {
 					PS.color(newX, PLAYER.Y_POS, 0x8A6328);
+					PS.border(newX, PLAYER.Y_POS, 1);
+					PS.borderColor(newX, PLAYER.Y_POS, 0x000000);
+					PS.border(PLAYER.X_POS, PLAYER.Y_POS, 0);
 					PS.radius(newX, PLAYER.Y_POS, 50);
 					PS.color(PLAYER.X_POS, PLAYER.Y_POS, 0xF4A460);
 					PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 0);
@@ -662,6 +759,9 @@ var PLAYER = {
 			}
 			else if (secondResult.r == 125 && secondResult.g == 38 && secondResult.b == 205) {
 					PS.color(newX, PLAYER.Y_POS, 0x8A6328);
+					PS.border(newX, PLAYER.Y_POS, 1);
+					PS.borderColor(newX, PLAYER.Y_POS, 0x000000);
+					PS.border(PLAYER.X_POS, PLAYER.Y_POS, 0);
 					PS.radius(newX, PLAYER.Y_POS, 50);
 					PS.color(PLAYER.X_POS, PLAYER.Y_POS, 0xF4A460);
 					PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 0);
@@ -676,6 +776,9 @@ var PLAYER = {
 			}
 			else if (secondResult.r == 255 && secondResult.g == 0 && secondResult.b == 0) {
 					PS.color(newX, PLAYER.Y_POS, 0x8A6328);
+					PS.border(newX, PLAYER.Y_POS, 1);
+					PS.borderColor(newX, PLAYER.Y_POS, 0x000000);
+					PS.border(PLAYER.X_POS, PLAYER.Y_POS, 0);
 					PS.radius(newX, PLAYER.Y_POS, 50);
 					PS.color(PLAYER.X_POS, PLAYER.Y_POS, 0x7D26CD);
 					PS.radius(PLAYER.X_POS, PLAYER.Y_POS, 50);
